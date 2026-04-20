@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RCCG Messiah's Praise Sanctuary — Young Adults & Youth Church</title>
+<meta name="description" content="RCCG Messiah's Praise Sanctuary - A vibrant Young Adults and Youth Church in Lagos, Nigeria. Join us for worship, fellowship, and Kingdom impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8641A;
+    --orange-light: #F5883A;
+    --orange-dark: #C44E0C;
+    --navy: #1A1F3A;
+    --navy-light: #252B4E;
+    --navy-mid: #2E3560;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --gray-100: #F4F1EC;
+    --gray-200: #E8E4DC;
+    --gray-400: #9E998F;
+    --gray-600: #5C5750;
+    --gold: #D4A843;
+    --green: #2A7A4B;
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(26, 31, 58, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    border-bottom: 1px solid rgba(232,100,26,0.2);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-ring {
+    width: 48px; height: 48px; border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid rgba(232,100,26,0.4);
+  }
+  .nav-logo-ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .nav-brand-text { display: flex; flex-direction: column; }
+  .nav-brand-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 15px; color: white;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+  .nav-brand-sub { font-size: 10px; color: var(--orange-light); letter-spacing: 1.5px; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--orange-light); }
+  .nav-cta {
+    background: var(--orange) !important;
+    color: white !important;
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-weight: 500 !important;
+  }
+  .nav-cta:hover { background: var(--orange-light) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: var(--transition); border-radius: 2px; }
+  .mobile-menu {
+    display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+    background: var(--navy); z-index: 999; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: white; text-decoration: none;
+    font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700;
+    transition: var(--transition);
+  }
+  .mobile-menu a:hover { color: var(--orange); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 72px;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(232,100,26,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(232,100,26,0.08) 0%, transparent 40%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-accent {
+    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+    width: 500px; height: 500px; border-radius: 50%;
+    border: 1px solid rgba(232,100,26,0.15);
+  }
+  .hero-accent::before {
+    content: ''; position: absolute; inset: 40px; border-radius: 50%;
+    border: 1px solid rgba(232,100,26,0.1);
+  }
+  .hero-accent::after {
+    content: ''; position: absolute; inset: 80px; border-radius: 50%;
+    border: 1px solid rgba(232,100,26,0.08);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,100,26,0.15);
+    border: 1px solid rgba(232,100,26,0.3);
+    border-radius: 50px;
+    padding: 6px 16px;
+    margin-bottom: 2rem;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .hero-badge span { color: var(--orange-light); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; }
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    color: white;
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+    border: 2px solid transparent;
+  }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: var(--transition);
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-num {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 2.2rem; color: white;
+  }
+  .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ===== SECTION BASICS ===== */
+  section { padding: 7rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .section-label-line { width: 30px; height: 2px; background: var(--orange); }
+  .section-label span {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--orange); font-weight: 600;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* ===== ABOUT ===== */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-visual {
+    position: relative;
+  }
+  .about-card-main {
+    background: var(--navy);
+    border-radius: 24px;
+    padding: 3rem;
+    color: white;
+    position: relative; overflow: hidden;
+  }
+  .about-card-main::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(232,100,26,0.15);
+    border-radius: 50%;
+  }
+  .about-card-main::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -30px;
+    width: 140px; height: 140px;
+    background: rgba(232,100,26,0.08);
+    border-radius: 50%;
+  }
+  .about-logo-display {
+    width: 90px; height: 90px; border-radius: 50%;
+    overflow: hidden; margin-bottom: 2rem;
+    position: relative; z-index: 1;
+    border: 3px solid rgba(232,100,26,0.5); background: white;
+  }
+  .about-logo-display img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .about-card-main h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+  .about-card-main p { color: rgba(255,255,255,0.7); line-height: 1.7; position: relative; z-index: 1; }
+  .about-card-float {
+    position: absolute; bottom: -24px; right: -24px;
+    background: var(--orange);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    color: white;
+    min-width: 160px;
+    box-shadow: 0 20px 40px rgba(232,100,26,0.35);
+  }
+  .about-card-float-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2rem; }
+  .about-card-float-label { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .about-value {
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border-left: 3px solid var(--orange);
+  }
+  .about-value h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .about-value p { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+
+  /* ===== SERVICES ===== */
+  #services { background: var(--cream); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
+  .service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transition: var(--transition);
+    transform-origin: left;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(232,100,26,0.1);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 1.5rem;
+  }
+  .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .service-card p { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+  .service-time {
+    margin-top: 1.25rem;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--orange); font-weight: 600;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    background: rgba(232,100,26,0.08);
+    padding: 4px 12px; border-radius: 50px;
+  }
+
+  .service-badge { position: absolute; top: 1rem; right: 1rem; background: var(--orange); color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 50px; }
+  .service-featured { border: 2px solid var(--orange) !important; }
+  /* ===== LIVE STREAM / YOUTUBE ===== */
+  #livestream { background: var(--navy); }
+  .livestream-header { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+  .livestream-header .section-title { color: white; }
+  .livestream-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+  .yt-channel-banner { max-width: 900px; margin: 0 auto 2.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; }
+  .yt-channel-header { background: linear-gradient(135deg, #1A1F3A 0%, #2E1A0A 100%); padding: 1.75rem 2rem; display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; }
+  .yt-channel-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(232,100,26,0.15), transparent 60%); }
+  .yt-channel-logo { width: 68px; height: 68px; border-radius: 50%; overflow: hidden; border: 3px solid var(--orange); background: white; flex-shrink: 0; position: relative; z-index: 1; }
+  .yt-channel-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .yt-channel-info { position: relative; z-index: 1; flex: 1; }
+  .yt-channel-name { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: white; margin-bottom: 2px; }
+  .yt-channel-handle { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .yt-channel-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .yt-subscribe-btn { display: inline-flex; align-items: center; gap: 8px; background: #FF0000; color: white; padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none; transition: var(--transition); white-space: nowrap; flex-shrink: 0; position: relative; z-index: 1; }
+  .yt-subscribe-btn:hover { background: #CC0000; transform: scale(1.04); }
+  .yt-subscribe-btn svg { width: 16px; height: 16px; fill: white; }
+  .yt-videos-label { padding: 1rem 1.5rem 0.5rem; font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+  .yt-videos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.04); }
+  .yt-video-item { background: rgba(26,31,58,0.95); transition: var(--transition); cursor: pointer; text-decoration: none; display: block; }
+  .yt-video-item:hover { background: rgba(46,53,96,0.95); }
+  .yt-video-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #0d1117; }
+  .yt-video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+  .yt-video-item:hover .yt-video-thumb img { transform: scale(1.05); }
+  .yt-video-thumb-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+  .yt-video-item:hover .yt-video-thumb-overlay { background: rgba(0,0,0,0.35); }
+  .yt-play-circle { width: 44px; height: 44px; background: rgba(232,100,26,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: var(--transition); }
+  .yt-video-item:hover .yt-play-circle { opacity: 1; transform: scale(1); }
+  .yt-play-circle svg { width: 18px; height: 18px; fill: white; margin-left: 3px; }
+  .yt-video-info { padding: 0.75rem 1rem; }
+  .yt-video-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.4; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .yt-video-date { font-size: 11px; color: rgba(255,255,255,0.35); }
+  .yt-view-all { display: block; text-align: center; padding: 1.25rem; border-top: 1px solid rgba(255,255,255,0.06); color: var(--orange-light); font-size: 13px; font-weight: 600; text-decoration: none; transition: var(--transition); letter-spacing: 0.5px; }
+  .yt-view-all:hover { background: rgba(232,100,26,0.08); color: white; }
+  .stream-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+  .stream-link { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 12px 24px; border-radius: 50px; font-size: 14px; font-weight: 500; transition: var(--transition); }
+  .stream-link:hover { background: var(--orange); border-color: var(--orange); }
+  .stream-link svg { width: 18px; height: 18px; }
+
+  /* ===== SERMONS ===== */
+  #sermons { background: var(--white); }
+  .sermons-filter {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 2.5rem 0;
+  }
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px; font-weight: 500;
+    border: 1.5px solid var(--gray-200);
+    background: transparent;
+    cursor: pointer; color: var(--gray-600);
+    transition: var(--transition);
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--orange); border-color: var(--orange); color: white;
+  }
+  .sermons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .sermon-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+    background: white;
+  }
+  .sermon-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.07); }
+  .sermon-thumb {
+    background: var(--navy);
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .sermon-thumb-pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 30% 50%, rgba(232,100,26,0.2), transparent 60%);
+  }
+  .sermon-play {
+    width: 52px; height: 52px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+    transition: var(--transition);
+    cursor: pointer; border: none;
+  }
+  .sermon-play:hover { transform: scale(1.1); background: var(--orange-light); }
+  .sermon-play svg { width: 20px; height: 20px; fill: white; margin-left: 3px; }
+  .sermon-body { padding: 1.5rem; }
+  .sermon-series { font-size: 11px; color: var(--orange); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .sermon-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.35; }
+  .sermon-meta { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+  .sermon-meta span { font-size: 12px; color: var(--gray-400); display: flex; align-items: center; gap: 4px; }
+  .sermon-audio { margin-top: 1rem; }
+  .sermon-audio audio { width: 100%; height: 36px; }
+
+  /* ===== EVENTS ===== */
+  #events { background: var(--cream); }
+  .events-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .event-featured {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative; overflow: hidden;
+    color: white;
+  }
+  .event-featured::before {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: rgba(232,100,26,0.12);
+  }
+  .event-featured-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 4px 14px; border-radius: 50px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+  .event-featured h3 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; position: relative; z-index: 1; }
+  .event-featured p { color: rgba(255,255,255,0.7); line-height: 1.7; position: relative; z-index: 1; }
+  .event-featured-meta {
+    display: flex; gap: 2rem; margin-top: 2rem; position: relative; z-index: 1;
+  }
+  .event-featured-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .event-featured-meta-label { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+  .event-featured-meta-val { font-size: 15px; font-weight: 600; color: var(--orange-light); }
+  .events-list { display: flex; flex-direction: column; gap: 1rem; }
+  .event-item {
+    background: white;
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex; gap: 1rem; align-items: center;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition);
+  }
+  .event-item:hover { border-color: var(--orange); }
+  .event-date-box {
+    min-width: 52px; height: 52px;
+    background: rgba(232,100,26,0.1);
+    border-radius: 12px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .event-date-day { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; color: var(--orange); line-height: 1; }
+  .event-date-month { font-size: 10px; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .event-info h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .event-info p { font-size: 12px; color: var(--gray-400); }
+
+  /* ===== GIVING ===== */
+  #giving { background: var(--white); }
+  .giving-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 4rem; }
+  .giving-info .section-sub { margin-bottom: 2rem; }
+  .giving-features { display: flex; flex-direction: column; gap: 1rem; }
+  .giving-feature {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 15px; color: var(--gray-600);
+  }
+  .giving-check {
+    width: 24px; height: 24px; min-width: 24px;
+    background: rgba(42,122,75,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--green); font-size: 14px;
+  }
+  .giving-form {
+    background: var(--navy);
+    border-radius: 24px;
+    padding: 2.5rem;
+    color: white;
+  }
+  .giving-form h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .giving-form p { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 2rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-label { display: block; font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+  .form-input, .form-select {
+    width: 100%; padding: 12px 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px; color: white;
+    font-size: 15px; font-family: 'DM Sans', sans-serif;
+    outline: none; transition: var(--transition);
+  }
+  .form-input:focus, .form-select:focus { border-color: var(--orange); background: rgba(255,255,255,0.1); }
+  .form-input::placeholder { color: rgba(255,255,255,0.35); }
+  .form-select option { background: var(--navy); color: white; }
+  .giving-amounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.25rem; }
+  .giving-amount-btn {
+    padding: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 8px; color: white;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: var(--transition);
+  }
+  .giving-amount-btn:hover, .giving-amount-btn.selected {
+    background: var(--orange); border-color: var(--orange);
+  }
+  .paystack-note { font-size: 11px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 1rem; }
+
+  /* ===== PRAYER ===== */
+  #prayer { background: var(--cream); }
+  .prayer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .prayer-form {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid var(--gray-200);
+  }
+  .prayer-form h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .prayer-form > p { color: var(--gray-600); font-size: 14px; margin-bottom: 2rem; }
+  .prayer-input, .prayer-select, .prayer-textarea {
+    width: 100%; padding: 12px 16px;
+    background: var(--gray-100);
+    border: 1.5px solid transparent;
+    border-radius: 10px; color: var(--navy);
+    font-size: 15px; font-family: 'DM Sans', sans-serif;
+    outline: none; transition: var(--transition);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .prayer-input:focus, .prayer-textarea:focus { border-color: var(--orange); background: white; }
+  .prayer-input::placeholder, .prayer-textarea::placeholder { color: var(--gray-400); }
+  .prayer-textarea { min-height: 120px; resize: vertical; }
+  .prayer-testimony { padding: 2rem 0; }
+  .prayer-testimony h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .testimony-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .testimony-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--orange);
+    border: 1px solid var(--gray-200);
+    border-left: 3px solid var(--orange);
+  }
+  .testimony-text { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin-bottom: 0.75rem; font-style: italic; }
+  .testimony-author { font-size: 13px; font-weight: 600; color: var(--navy); }
+
+  /* ===== BIBLE QUIZ ===== */
+  #quiz { background: var(--navy); }
+  .quiz-header { text-align: center; margin-bottom: 3rem; }
+  .quiz-header .section-title { color: white; }
+  .quiz-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 2rem; }
+  .quiz-container {
+    max-width: 700px; margin: 0 auto;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+  .quiz-topbar {
+    background: rgba(232,100,26,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .quiz-progress-label { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .quiz-score-badge {
+    background: var(--orange);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 13px; font-weight: 700;
+  }
+  .quiz-progress-bar-wrap {
+    height: 4px; background: rgba(255,255,255,0.1);
+    margin: 0; flex: 1; margin: 0 1rem; border-radius: 2px;
+  }
+  .quiz-progress-bar { height: 100%; background: var(--orange); border-radius: 2px; transition: width 0.5s ease; }
+  .quiz-body { padding: 2.5rem; }
+  .quiz-question-num { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
+  .quiz-question { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 700; color: white; line-height: 1.45; margin-bottom: 2rem; }
+  .quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+  .quiz-option {
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    width: 100%;
+  }
+  .quiz-option:hover:not(:disabled) { background: rgba(232,100,26,0.15); border-color: var(--orange); }
+  .quiz-option.correct { background: rgba(42,122,75,0.2); border-color: #2A7A4B; color: #7FD4A1; }
+  .quiz-option.wrong { background: rgba(229,62,62,0.15); border-color: #E53E3E; color: #FC8181; }
+  .quiz-option.reveal-correct { background: rgba(42,122,75,0.2); border-color: #2A7A4B; color: #7FD4A1; }
+  .quiz-explanation {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border-left: 3px solid var(--orange);
+    font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.65;
+    display: none;
+  }
+  .quiz-footer {
+    padding: 1.5rem 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .quiz-btn {
+    padding: 12px 28px;
+    background: var(--orange);
+    color: white;
+    border: none; border-radius: 50px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; transition: var(--transition);
+    letter-spacing: 0.5px;
+  }
+  .quiz-btn:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .quiz-result {
+    text-align: center; padding: 3rem 2.5rem;
+    display: none;
+  }
+  .quiz-result-icon { font-size: 64px; margin-bottom: 1rem; }
+  .quiz-result h3 { font-size: 1.8rem; color: white; font-weight: 800; margin-bottom: 0.5rem; }
+  .quiz-result p { color: rgba(255,255,255,0.65); margin-bottom: 2rem; font-size: 1.05rem; }
+  .quiz-result-score { font-size: 3rem; font-weight: 800; font-family: 'Syne', sans-serif; color: var(--orange); }
+
+  /* ===== NEWSLETTER ===== */
+  #newsletter { background: var(--orange); }
+  .newsletter-inner {
+    text-align: center;
+    max-width: 560px; margin: 0 auto;
+  }
+  .newsletter-inner h2 {
+    font-size: 2.5rem; font-weight: 800;
+    color: white; letter-spacing: -1px; margin-bottom: 1rem;
+  }
+  .newsletter-inner p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.05rem; }
+  .newsletter-form { display: flex; gap: 0.75rem; }
+  .newsletter-input {
+    flex: 1; padding: 14px 20px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    color: white; font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none; transition: var(--transition);
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.6); }
+  .newsletter-input:focus { background: rgba(255,255,255,0.3); border-color: white; }
+  .newsletter-btn {
+    padding: 14px 28px;
+    background: white;
+    color: var(--orange);
+    border: none; border-radius: 50px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; transition: var(--transition); white-space: nowrap;
+  }
+  .newsletter-btn:hover { background: var(--navy); color: white; }
+
+  /* ===== CONTACT ===== */
+  #contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .contact-info h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .contact-info p { color: var(--gray-600); font-size: 14px; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--gray-200);
+  }
+  .contact-item-icon {
+    width: 40px; height: 40px; min-width: 40px;
+    background: rgba(232,100,26,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .contact-item-text h4 { font-size: 13px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .contact-item-text p { font-size: 15px; color: var(--navy); }
+  .contact-item-text a { color: var(--orange); text-decoration: none; }
+  .contact-form-wrap { background: white; border-radius: 24px; padding: 2.5rem; border: 1px solid var(--gray-200); }
+  .contact-form-wrap h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .contact-form-wrap > p { color: var(--gray-600); font-size: 14px; margin-bottom: 2rem; }
+  .cf-input, .cf-textarea {
+    width: 100%; padding: 12px 16px;
+    background: var(--gray-100);
+    border: 1.5px solid transparent;
+    border-radius: 10px; color: var(--navy);
+    font-size: 15px; font-family: 'DM Sans', sans-serif;
+    outline: none; transition: var(--transition);
+    margin-bottom: 1rem; display: block;
+  }
+  .cf-input:focus, .cf-textarea:focus { border-color: var(--orange); background: white; }
+  .cf-textarea { min-height: 120px; resize: vertical; }
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* ===== WHATSAPP ===== */
+  .whatsapp-float {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 58px; height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+    z-index: 999; transition: var(--transition);
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.55); }
+  .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy);
+    color: white;
+    padding: 5rem 2rem 2rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+  .footer-brand-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .footer-brand-desc { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
+  .footer-socials { display: flex; gap: 0.75rem; }
+  .footer-social {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: rgba(255,255,255,0.7);
+    font-size: 16px; transition: var(--transition);
+  }
+  .footer-social:hover { background: var(--orange); color: white; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .footer-col li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: var(--transition); }
+  .footer-col li a:hover { color: var(--orange-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-rccg { color: var(--orange-light); }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed; bottom: 6rem; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--navy);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px; font-weight: 500;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    z-index: 9999; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    border: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .about-grid, .giving-grid, .prayer-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .events-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 2rem; }
+    .newsletter-form { flex-direction: column; }
+    .cf-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 5rem 1.25rem; }
+    nav { padding: 0 1.25rem; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+    .giving-amounts { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo-ring"><img src="mps-logo.jpg" alt="RCCG MPS Logo"></div>
+    <div class="nav-brand-text">
+      <div class="nav-brand-name">RCCG MPS</div>
+      <div class="nav-brand-sub">Young Adults & Youth · Redemption Camp</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#sermons">Sermons</a>
+    <a href="#events">Events</a>
+    <a href="#quiz">Bible Quiz</a>
+    <a href="#giving">Give</a>
+    <a href="#contact" class="nav-cta">Join Us</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#sermons" onclick="closeMenu()">Sermons</a>
+  <a href="#events" onclick="closeMenu()">Events</a>
+  <a href="#quiz" onclick="closeMenu()">Bible Quiz</a>
+  <a href="#giving" onclick="closeMenu()">Give</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Young Adults & Youth Church · RCCG</span>
+    </div>
+    <h1>Where <span>Faith</span> Meets Purpose</h1>
+    <p class="hero-sub">A vibrant Kingdom community at the Redemption Camp, built for young adults and youth who are ready to live boldly for God.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Join This Sunday
+      </a>
+      <a href="#livestream" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch Live
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Members</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Years</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">Departments</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Services/Week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-card-main">
+        <div class="about-logo-display" style="background:white;overflow:hidden;padding:0;border:3px solid var(--orange)"><img src="mps-logo.jpg" alt="MPS Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+          <h3>Messiah's Praise Sanctuary</h3>
+          <p>A parish of the Redeemed Christian Church of God — raising a generation who worship in truth, serve with excellence, and impact their world for Christ.</p>
+        </div>
+        <div class="about-card-float">
+          <div class="about-card-float-num">2014</div>
+          <div class="about-card-float-label">Established</div>
+        </div>
+      </div>
+      <div class="about-text fade-in fade-in-delay-1">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Who We Are</span>
+        </div>
+        <h2 class="section-title">A Church Built for This Generation</h2>
+        <p class="section-sub">RCCG Messiah's Praise Sanctuary is more than a church — it is a movement. We exist to raise young Nigerians who are rooted in the Word, passionate in worship, and effective in purpose.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <h4>🔥 Passionate Worship</h4>
+            <p>Every service is a genuine encounter with the living God.</p>
+          </div>
+          <div class="about-value">
+            <h4>📖 Word-Centred</h4>
+            <p>We preach the undiluted truth of Scripture every week.</p>
+          </div>
+          <div class="about-value">
+            <h4>🤝 Community</h4>
+            <p>Real relationships built through cell groups and fellowship.</p>
+          </div>
+          <div class="about-value">
+            <h4>🌍 Kingdom Impact</h4>
+            <p>We are mission-driven — locally, nationally, and globally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label fade-in">
+      <div class="section-label-line"></div>
+      <span>Join Us</span>
+    </div>
+    <h2 class="section-title fade-in">Our Services</h2>
+    <p class="section-sub fade-in">Every gathering is a divine appointment. Here is when we meet and what to expect.</p>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">🙌</div>
+        <h3>Sunday Service</h3>
+        <p>Our weekly gathering of praise, worship and the Word. Come encounter God and connect with a community that loves you every Sunday morning.</p>
+        <div class="service-time">⏰ Every Sunday · 8:00 AM</div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-icon">🎉</div>
+        <h3>Thanksgiving Service</h3>
+        <p>A special first-Sunday celebration where we lift our voices in gratitude to God for His faithfulness over the previous month. Come and give thanks!</p>
+        <div class="service-time">⏰ 1st Sunday Monthly · 8:00 AM</div>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-icon">👑</div>
+        <h3>Dominion Service</h3>
+        <p>Our midweek power service — an evening of deep worship, prophetic teaching, and intercession to keep your spirit dominant all week long.</p>
+        <div class="service-time">⏰ Every Wednesday · 5:00 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE STREAM -->
+<section id="livestream">
+  <div class="container">
+    <div class="livestream-header fade-in">
+      <div class="section-label" style="justify-content:center">
+        <div class="section-label-line"></div>
+        <span style="color:var(--orange-light)">Live & Replay</span>
+      </div>
+      <h2 class="section-title" style="color:white">Watch From Anywhere</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6)">Our services are streamed live every Sunday. Subscribe to our YouTube channel and never miss a moment of what God is doing at MPS.</p>
+    </div>
+    <div class="video-wrapper fade-in">
+      <iframe
+        src="https://www.youtube.com/embed?listType=playlist&list=UUFlUCuGYgFlC2dk3vgGjt6w&autoplay=0"
+        title="RCCG MPS Latest Videos"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="stream-links fade-in">
+      <a href="https://youtube.com/@rccgmps" target="_blank" class="stream-link" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Subscribe on YouTube
+      </a>
+      <a href="https://www.instagram.com/rccg_mps" target="_blank" class="stream-link" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Follow on Instagram
+      </a>
+      <a href="https://wa.me/2347000000000" target="_blank" class="stream-link" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Join WhatsApp Community
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERMONS -->
+<section id="sermons">
+  <div class="container">
+    <div class="section-label fade-in">
+      <div class="section-label-line"></div>
+      <span>Sermon Archive</span>
+    </div>
+    <h2 class="section-title fade-in">Messages That Move You</h2>
+    <p class="section-sub fade-in">Access past sermons, teaching series, and audio messages. Faith comes by hearing — listen anytime.</p>
+    <div class="sermons-filter fade-in">
+      <button class="filter-btn active" onclick="filterSermons('all', this)">All Series</button>
+      <button class="filter-btn" onclick="filterSermons('faith', this)">Faith</button>
+      <button class="filter-btn" onclick="filterSermons('relationships', this)">Relationships</button>
+      <button class="filter-btn" onclick="filterSermons('purpose', this)">Purpose</button>
+      <button class="filter-btn" onclick="filterSermons('prayer', this)">Prayer</button>
+    </div>
+    <div class="sermons-grid" id="sermonsGrid">
+
+      <div class="sermon-card fade-in" data-category="faith">
+        <div class="sermon-thumb" style="height:180px;position:relative;overflow:hidden;cursor:pointer" onclick="openYT('https://www.youtube.com/@rccgmps')">
+          <img src="https://i.ytimg.com/vi/ogthumbnail/0.jpg" 
+               onerror="this.onerror=null;this.closest('.sermon-thumb').style.background='var(--navy)';this.remove();this.closest('.sermon-thumb').querySelector('.sermon-thumb-pattern').style.display='block'"
+               style="width:100%;height:100%;object-fit:cover;display:block" alt="Sermon thumbnail">
+          <div class="sermon-thumb-pattern" style="display:none"></div>
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center">
+            <div class="sermon-play" style="pointer-events:none">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.75);color:white;font-size:11px;padding:3px 8px;border-radius:4px;font-weight:600">RCCG MPS</div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Latest Message</div>
+          <div class="sermon-title">Watch Our Most Recent Service on YouTube</div>
+          <div class="sermon-meta">
+            <span>📺 youtube.com/@rccgmps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sermon-card fade-in fade-in-delay-1" data-category="purpose">
+        <div class="sermon-thumb" style="height:180px;position:relative;overflow:hidden;cursor:pointer;background:var(--navy)" onclick="openYT('https://www.youtube.com/@rccgmps?tab=videos')">
+          <div class="sermon-thumb-pattern"></div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="#E8641A"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center;padding:0 1rem">Subscribe & Watch All Videos</span>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">YouTube Channel</div>
+          <div class="sermon-title">RCCG MPS — Full Sermon Archive on YouTube</div>
+          <div class="sermon-meta">
+            <span>📺 @rccgmps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sermon-card fade-in fade-in-delay-2" data-category="prayer">
+        <div class="sermon-thumb" style="height:180px;position:relative;overflow:hidden;cursor:pointer;background:linear-gradient(135deg,#1A1F3A 60%,#2E3560)" onclick="openYT('https://www.youtube.com/@rccgmps/streams')">
+          <div style="position:absolute;top:1rem;left:1rem;background:#E53E3E;color:white;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:5px;letter-spacing:1px;text-transform:uppercase">
+            <span style="width:6px;height:6px;border-radius:50%;background:white;display:inline-block;animation:pulse 1s infinite"></span> LIVE
+          </div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+            <div style="font-size:40px">📡</div>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center">Sunday Service · 8:00 AM<br><span style="color:var(--orange-light)">Join us live every week</span></span>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Live Stream</div>
+          <div class="sermon-title">Join Sunday Service Live — Every Sunday 8:00 AM</div>
+          <div class="sermon-meta">
+            <span>📡 Watch Live on YouTube</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sermon-card fade-in" data-category="faith">
+        <div class="sermon-thumb" style="height:180px;position:relative;overflow:hidden;cursor:pointer;background:var(--navy)" onclick="openYT('https://www.youtube.com/@rccgmps?tab=videos')">
+          <div class="sermon-thumb-pattern"></div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
+            <div style="font-size:40px">👑</div>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center;padding:0 1rem">Dominion Service<br><span style="color:var(--orange-light);font-size:12px">Every Wednesday · 5:00 PM</span></span>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Dominion Service</div>
+          <div class="sermon-title">Midweek Power & Prophetic Teaching — Watch Replays</div>
+          <div class="sermon-meta">
+            <span>⏰ Wednesdays · 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sermon-card fade-in fade-in-delay-1" data-category="relationships">
+        <div class="sermon-thumb" style="height:180px;position:relative;overflow:hidden;cursor:pointer;background:var(--navy)" onclick="openYT('https://www.youtube.com/@rccgmps?tab=videos')">
+          <div class="sermon-thumb-pattern"></div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
+            <div style="font-size:40px">🎉</div>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center;padding:0 1rem">Thanksgiving Service<br><span style="color:var(--orange-light);font-size:12px">First Sunday Every Month</span></span>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Thanksgiving Service</div>
+          <div class="sermon-title">Monthly Celebration of God's Faithfulness</div>
+          <div class="sermon-meta">
+            <span>📅 1st Sunday Monthly</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sermon-card fade-in fade-in-delay-2" data-category="purpose">
+        <div class="sermon-thumb" style="height:180px;position:relative;overflow:hidden;cursor:pointer;background:var(--navy)" onclick="openYT('https://www.youtube.com/@rccgmps')">
+          <div class="sermon-thumb-pattern"></div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
+            <img src="mps-logo.jpg" alt="MPS" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--orange)">
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center">Watch All Sermons<br><span style="color:var(--orange-light);font-size:12px">youtube.com/@rccgmps</span></span>
+          </div>
+        </div>
+        <div class="sermon-body">
+          <div class="sermon-series">Full Archive</div>
+          <div class="sermon-title">All Messages Available on Our YouTube Channel</div>
+          <div class="sermon-meta">
+            <span>📺 Subscribe for updates</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="container">
+    <div class="section-label fade-in">
+      <div class="section-label-line"></div>
+      <span>What's On</span>
+    </div>
+    <h2 class="section-title fade-in">Upcoming Events</h2>
+    <div class="events-grid fade-in">
+      <div class="event-featured">
+        <span class="event-featured-tag">⭐ Featured Event</span>
+        <h3>Kingdom Youth Conference 2025 — "REIGN"</h3>
+        <p>A three-day immersive conference for young adults and youth across Nigeria. Expect explosive worship, ministry from leading voices, breakout sessions, and life-changing encounters with God.</p>
+        <div class="event-featured-meta">
+          <div class="event-featured-meta-item">
+            <div class="event-featured-meta-label">Date</div>
+            <div class="event-featured-meta-val">May 23–25, 2025</div>
+          </div>
+          <div class="event-featured-meta-item">
+            <div class="event-featured-meta-label">Time</div>
+            <div class="event-featured-meta-val">5:00 PM Daily</div>
+          </div>
+          <div class="event-featured-meta-item">
+            <div class="event-featured-meta-label">Venue</div>
+            <div class="event-featured-meta-val">MPS Auditorium</div>
+          </div>
+        </div>
+      </div>
+      <div class="events-list">
+        <div class="event-item">
+          <div class="event-date-box">
+            <div class="event-date-day">27</div>
+            <div class="event-date-month">Apr</div>
+          </div>
+          <div class="event-info">
+            <h4>Easter Sunday Celebration</h4>
+            <p>9:00 AM · Main Auditorium</p>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-date-box">
+            <div class="event-date-day">4</div>
+            <div class="event-date-month">May</div>
+          </div>
+          <div class="event-info">
+            <h4>Singles & Young Adults Night</h4>
+            <p>6:00 PM · Church Hall</p>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-date-box">
+            <div class="event-date-day">10</div>
+            <div class="event-date-month">May</div>
+          </div>
+          <div class="event-info">
+            <h4>Mothers' Day Thanksgiving</h4>
+            <p>9:00 AM · Main Auditorium</p>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-date-box">
+            <div class="event-date-day">17</div>
+            <div class="event-date-month">May</div>
+          </div>
+          <div class="event-info">
+            <h4>Street Evangelism Outreach</h4>
+            <p>8:00 AM · Lagos Island</p>
+          </div>
+        </div>
+        <div class="event-item">
+          <div class="event-date-box">
+            <div class="event-date-day">31</div>
+            <div class="event-date-month">May</div>
+          </div>
+          <div class="event-info">
+            <h4>Monthly Youth Sunday</h4>
+            <p>9:00 AM · Main Auditorium</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRAYER -->
+<section id="prayer">
+  <div class="container">
+    <div class="prayer-grid">
+      <div class="fade-in">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Prayer</span>
+        </div>
+        <h2 class="section-title">We're Standing With You</h2>
+        <p class="section-sub">No matter what you're going through, you don't have to face it alone. Submit your prayer request and our prayer team will intercede for you.</p>
+        <div class="prayer-testimony" style="margin-top:3rem">
+          <h3>Testimonies from Our Family</h3>
+          <div class="testimony-cards">
+            <div class="testimony-card">
+              <p class="testimony-text">"I submitted a prayer request for my NYSC posting and within two weeks, God showed up! Got my first-choice state. MPS prayer team is real."</p>
+              <div class="testimony-author">— Adaeze O., Youth Member</div>
+            </div>
+            <div class="testimony-card">
+              <p class="testimony-text">"After months of unemployment, I sowed and prayed with the church. Three job offers came in one week. God is faithful!"</p>
+              <div class="testimony-author">— Emmanuel B., Young Adult</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="prayer-form fade-in fade-in-delay-1">
+        <h3>Submit a Prayer Request</h3>
+        <p>Your request is confidential and will be handled with love and sensitivity.</p>
+        <input class="prayer-input" type="text" placeholder="Your full name" id="prayerName">
+        <input class="prayer-input" type="email" placeholder="Your email address" id="prayerEmail">
+        <select class="prayer-input" id="prayerCat" style="background:var(--gray-100);color:var(--navy);">
+          <option value="">Category of prayer...</option>
+          <option>Health & Healing</option>
+          <option>Career & Finances</option>
+          <option>Relationships & Marriage</option>
+          <option>Family</option>
+          <option>Academic Success</option>
+          <option>Spiritual Growth</option>
+          <option>General</option>
+        </select>
+        <textarea class="prayer-textarea" placeholder="Share your prayer request here... (it is safe)" id="prayerMsg"></textarea>
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitPrayer()">
+          🙏 Submit Prayer Request
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIVING -->
+<section id="giving">
+  <div class="container">
+    <div class="giving-grid">
+      <div class="fade-in">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Give Online</span>
+        </div>
+        <h2 class="section-title">Give to the Kingdom</h2>
+        <p class="section-sub">Your giving fuels the mission of God at RCCG Messiah's Praise Sanctuary. Every seed sown is an investment in eternity.</p>
+        <div class="giving-features" style="margin-top:2rem">
+          <div class="giving-feature"><div class="giving-check">✓</div> Tithe — Honour God with your first fruits</div>
+          <div class="giving-feature"><div class="giving-check">✓</div> Offering — Sow into the house of God</div>
+          <div class="giving-feature"><div class="giving-check">✓</div> Building Fund — Help us build God's house</div>
+          <div class="giving-feature"><div class="giving-check">✓</div> Missions Fund — Sponsor the gospel to the nations</div>
+          <div class="giving-feature"><div class="giving-check">✓</div> 100% secure via Paystack — Nigerian gateway</div>
+          <div class="giving-feature"><div class="giving-check">✓</div> Instant email receipt for every transaction</div>
+        </div>
+        <div style="margin-top:2.5rem;padding:1.5rem;background:rgba(232,100,26,0.06);border-radius:14px;border:1px solid rgba(232,100,26,0.15)">
+          <p style="font-size:14px;color:var(--gray-600);line-height:1.7"><strong style="color:var(--navy)">Bank Transfer:</strong> RCCG Messiah's Praise Sanctuary<br>
+          Account: 0123456789 · GTBank</p>
+        </div>
+      </div>
+      <div class="giving-form fade-in fade-in-delay-1">
+        <h3>Make a Gift</h3>
+        <p>Powered by Paystack — safe, instant, Nigerian.</p>
+        <div class="form-group">
+          <label class="form-label">Select Amount (₦)</label>
+          <div class="giving-amounts">
+            <button class="giving-amount-btn" onclick="selectAmount(this, 1000)">₦1,000</button>
+            <button class="giving-amount-btn" onclick="selectAmount(this, 2000)">₦2,000</button>
+            <button class="giving-amount-btn" onclick="selectAmount(this, 5000)">₦5,000</button>
+            <button class="giving-amount-btn" onclick="selectAmount(this, 10000)">₦10,000</button>
+            <button class="giving-amount-btn" onclick="selectAmount(this, 20000)">₦20,000</button>
+            <button class="giving-amount-btn" onclick="selectAmount(this, 50000)">₦50,000</button>
+          </div>
+          <input class="form-input" type="number" placeholder="Or enter custom amount" id="givingAmount">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Giving Category</label>
+          <select class="form-select" id="givingCat">
+            <option>Tithe</option>
+            <option>Offering</option>
+            <option>Building Fund</option>
+            <option>Missions</option>
+            <option>Thanksgiving</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input class="form-input" type="text" placeholder="Your name" id="givingName">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="For receipt" id="givingEmail">
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:16px" onclick="initiatePayment()">
+          💳 Give Now via Paystack
+        </button>
+        <p class="paystack-note">🔒 Secured by Paystack · Nigerian Payment Gateway</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIBLE QUIZ -->
+<section id="quiz">
+  <div class="container">
+    <div class="quiz-header fade-in">
+      <div class="section-label" style="justify-content:center">
+        <div class="section-label-line"></div>
+        <span style="color:var(--orange-light)">Test Your Knowledge</span>
+      </div>
+      <h2 class="section-title" style="color:white">Bible Quiz Challenge</h2>
+      <p class="section-sub">How well do you know God's Word? Take our 15-question challenge and find out!</p>
+    </div>
+    <div class="quiz-container fade-in" id="quizContainer">
+      <!-- Quiz start screen -->
+      <div id="quizStart" style="text-align:center;padding:4rem 2.5rem">
+        <div style="font-size:64px;margin-bottom:1.5rem">📖</div>
+        <h3 style="font-family:'Syne',sans-serif;font-size:1.6rem;color:white;font-weight:800;margin-bottom:0.75rem">Ready for the Challenge?</h3>
+        <p style="color:rgba(255,255,255,0.6);max-width:420px;margin:0 auto 2rem;line-height:1.7">15 questions from both Old and New Testament. No time limit — just you and the Word. Good luck!</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.5rem;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:white">15</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Questions</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.5rem;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:white">OT+NT</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Coverage</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.5rem;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:white">∞</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Time Limit</div>
+          </div>
+        </div>
+        <button class="quiz-btn" onclick="startQuiz()" style="font-size:16px;padding:14px 40px">Start Quiz ✨</button>
+      </div>
+      <!-- Quiz active screen -->
+      <div id="quizActive" style="display:none">
+        <div class="quiz-topbar">
+          <span class="quiz-progress-label" id="quizProgressLabel">Question 1 of 15</span>
+          <div class="quiz-progress-bar-wrap"><div class="quiz-progress-bar" id="quizProgressBar" style="width:6.67%"></div></div>
+          <div class="quiz-score-badge">Score: <span id="quizScoreDisplay">0</span></div>
+        </div>
+        <div class="quiz-body">
+          <div class="quiz-question-num" id="quizQNum">Question 1</div>
+          <div class="quiz-question" id="quizQuestion"></div>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-explanation" id="quizExplanation"></div>
+        </div>
+        <div class="quiz-footer">
+          <span id="quizFeedback" style="font-size:14px;color:rgba(255,255,255,0.6)"></span>
+          <button class="quiz-btn" id="quizNextBtn" onclick="nextQuestion()" disabled>Next →</button>
+        </div>
+      </div>
+      <!-- Quiz result screen -->
+      <div class="quiz-result" id="quizResult">
+        <div class="quiz-result-icon" id="quizResultIcon">🎉</div>
+        <div class="quiz-result-score" id="quizResultScore">0/15</div>
+        <h3 id="quizResultTitle">Well Done!</h3>
+        <p id="quizResultMsg"></p>
+        <button class="quiz-btn" onclick="restartQuiz()" style="margin-top:1rem">Try Again 🔄</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner fade-in">
+      <h2>Stay Connected to the Kingdom</h2>
+      <p>Get our weekly devotional, sermon notes, event updates, and prayer points delivered straight to your inbox. Join 500+ members who never miss a word.</p>
+      <div class="newsletter-form">
+        <input class="newsletter-input" type="email" placeholder="Your email address" id="newsletterEmail">
+        <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe Free</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Find Us</span>
+        </div>
+        <h2 class="section-title">Come as You Are</h2>
+        <p class="section-sub">We'd love to meet you in person. Walk through our doors and you'll know — you've found your family.</p>
+        <div class="contact-items" style="margin-top:2rem">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <h4>Address</h4>
+              <p>RCCG Messiah's Praise Sanctuary, Redemption Camp, Km 46, Lagos–Ibadan Expressway</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <h4>Phone / WhatsApp</h4>
+              <p><a href="tel:+2347000000000">+234 700 000 0000</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <h4>Email</h4>
+              <p><a href="mailto:hello@rccgmps.org">hello@rccgmps.org</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕊️</div>
+            <div class="contact-item-text">
+              <h4>Sunday Service</h4>
+              <p>Every Sunday · 9:00 AM</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="https://www.instagram.com/rccg_mps" target="_blank" class="btn-outline" style="font-size:13px;padding:10px 20px;color:var(--navy);border-color:var(--gray-200)">📸 Instagram</a>
+          <a href="https://youtube.com/@rccgmps" target="_blank" class="btn-outline" style="font-size:13px;padding:10px 20px;color:var(--navy);border-color:var(--gray-200)">▶ YouTube</a>
+        </div>
+      </div>
+      <div class="contact-form-wrap fade-in fade-in-delay-1">
+        <h3>Send Us a Message</h3>
+        <p>We typically respond within 24 hours. All enquiries are welcome.</p>
+        <div class="cf-row">
+          <input class="cf-input" type="text" placeholder="First name" id="cfFirst">
+          <input class="cf-input" type="text" placeholder="Last name" id="cfLast">
+        </div>
+        <input class="cf-input" type="email" placeholder="Email address" id="cfEmail">
+        <input class="cf-input" type="tel" placeholder="Phone number" id="cfPhone">
+        <select class="cf-input" id="cfSubject">
+          <option value="">I'm reaching out about...</option>
+          <option>Visiting for the first time</option>
+          <option>Joining a department</option>
+          <option>Prayer & counselling</option>
+          <option>Volunteering</option>
+          <option>Partnership / Business</option>
+          <option>General enquiry</option>
+        </select>
+        <textarea class="cf-textarea" placeholder="Your message..." id="cfMsg"></textarea>
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitContact()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem"><img src="mps-logo.jpg" alt="RCCG MPS" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid rgba(232,100,26,0.4)"><div class="footer-brand-name" style="margin:0">RCCG Messiah's Praise Sanctuary</div></div>
+        <p class="footer-brand-desc">A vibrant Young Adults & Youth Church in Lagos, Nigeria — raising a generation for God's Kingdom. Part of the Redeemed Christian Church of God global family.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/rccg_mps" target="_blank" class="footer-social" title="Instagram">📸</a>
+          <a href="https://youtube.com/@rccgmps" target="_blank" class="footer-social" title="YouTube">▶</a>
+          <a href="https://wa.me/2347000000000" target="_blank" class="footer-social" title="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#sermons">Sermons</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ministry</h4>
+        <ul>
+          <li><a href="#giving">Online Giving</a></li>
+          <li><a href="#prayer">Prayer Requests</a></li>
+          <li><a href="#quiz">Bible Quiz</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service Times</h4>
+        <ul>
+          <li><a href="#">Sunday — 8:00 AM</a></li>
+          <li><a href="#">Wednesday (Dominion) — 5:00 PM</a></li>
+          <li><a href="#">1st Sunday Thanksgiving</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 RCCG Messiah's Praise Sanctuary. All rights reserved.</span>
+      <span>Part of <span class="footer-rccg">The Redeemed Christian Church of God</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/2347000000000" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+function openYT(url) { window.open(url, '_blank'); }
+
+// ===== NAV =====
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== YOUTUBE GRID =====
+// Channel ID: UCFlUCuGYgFlC2dk3vgGjt6w (@rccgmps)
+// We load the channel's latest video in slot 1 as a live embed,
+// and fill the remaining 5 slots with styled service tiles linking to the channel.
+// Thumbnails for known videos are pulled from YouTube's public CDN.
+function buildYTGrid() {
+  const grid = document.getElementById('ytVideosGrid');
+  if (!grid) return;
+  const channelUrl = 'https://youtube.com/@rccgmps';
+  const channelId = 'UCFlUCuGYgFlC2dk3vgGjt6w';
+
+  // Slot 1: Live channel embed (shows latest/live video)
+  const embedDiv = document.createElement('div');
+  embedDiv.className = 'yt-video-item';
+  embedDiv.innerHTML = `
+    <div class="yt-video-thumb" style="position:relative;overflow:hidden">
+      <iframe
+        src="https://www.youtube.com/embed?listType=user_uploads&list=rccgmps"
+        frameborder="0" allowfullscreen
+        style="position:absolute;inset:0;width:100%;height:100%;border:none"
+        title="RCCG MPS Latest Video" loading="lazy">
+      </iframe>
+    </div>
+    <div class="yt-video-info">
+      <div class="yt-video-title">Latest Upload — RCCG MPS</div>
+      <div class="yt-video-date">Live every Sunday 8AM & Wednesday 5PM</div>
+    </div>
+  `;
+  grid.appendChild(embedDiv);
+
+  // Slots 2-6: Styled tiles representing service types
+  const tiles = [
+    { icon: '☀️', label: 'Sunday Service', sub: 'Every Sunday · 8:00 AM', bg: '#0d1829' },
+    { icon: '👑', label: 'Dominion Service', sub: 'Every Wednesday · 5:00 PM', bg: '#130d24' },
+    { icon: '🎉', label: 'Thanksgiving Service', sub: '1st Sunday Monthly', bg: '#1a1205' },
+    { icon: '🔥', label: 'Special Programmes', sub: 'Watch Full Playlist', bg: '#1a0d0d' },
+    { icon: '🙏', label: 'Prayer & Worship', sub: 'Anytime, Anywhere', bg: '#0a1520' },
+  ];
+
+  tiles.forEach(tile => {
+    const a = document.createElement('a');
+    a.href = channelUrl;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.className = 'yt-video-item';
+    a.innerHTML = `
+      <div class="yt-video-thumb" style="background:${tile.bg}">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at center,rgba(232,100,26,0.14),transparent 70%)">
+          <div style="font-size:2.2rem;margin-bottom:8px;line-height:1">${tile.icon}</div>
+          <div style="font-family:'Syne',sans-serif;font-size:11px;color:rgba(255,255,255,0.75);font-weight:700;letter-spacing:0.5px;text-align:center;padding:0 0.5rem">${tile.label}</div>
+        </div>
+        <div class="yt-video-thumb-overlay">
+          <div class="yt-play-circle">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="yt-video-info">
+        <div class="yt-video-title">${tile.label} — Watch on YouTube</div>
+        <div class="yt-video-date">${tile.sub}</div>
+      </div>
+    `;
+    grid.appendChild(a);
+  });
+}
+buildYTGrid();
+
+// ===== SERMON FILTER =====
+function filterSermons(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.sermon-card').forEach(card => {
+    if (cat === 'all' || card.dataset.category === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// ===== GIVING =====
+function selectAmount(btn, amount) {
+  document.querySelectorAll('.giving-amount-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('givingAmount').value = amount;
+}
+function initiatePayment() {
+  const amount = document.getElementById('givingAmount').value;
+  const name = document.getElementById('givingName').value;
+  const email = document.getElementById('givingEmail').value;
+  const cat = document.getElementById('givingCat').value;
+  if (!amount || !name || !email) { showToast('⚠️ Please fill in all fields'); return; }
+  showToast('✅ Redirecting to Paystack secure checkout...');
+  // In production: PaystackPop.setup({ key:'pk_live_...', email, amount:amount*100, ... }).openIframe()
+}
+
+// ===== PRAYER =====
+function submitPrayer() {
+  const name = document.getElementById('prayerName').value;
+  const msg = document.getElementById('prayerMsg').value;
+  if (!name || !msg) { showToast('⚠️ Please fill in your name and prayer request'); return; }
+  showToast('🙏 Prayer request submitted! We are standing with you.');
+  document.getElementById('prayerName').value = '';
+  document.getElementById('prayerEmail').value = '';
+  document.getElementById('prayerMsg').value = '';
+}
+
+// ===== NEWSLETTER =====
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail').value;
+  if (!email || !email.includes('@')) { showToast('⚠️ Please enter a valid email address'); return; }
+  showToast('🎉 Welcome to the MPS family newsletter!');
+  document.getElementById('newsletterEmail').value = '';
+}
+
+// ===== CONTACT =====
+function submitContact() {
+  const name = document.getElementById('cfFirst').value;
+  const msg = document.getElementById('cfMsg').value;
+  if (!name || !msg) { showToast('⚠️ Please fill in the required fields'); return; }
+  showToast('✅ Message sent! We will get back to you shortly.');
+  ['cfFirst','cfLast','cfEmail','cfPhone','cfMsg'].forEach(id => document.getElementById(id).value = '');
+}
+
+// ===== BIBLE QUIZ =====
+const quizQuestions = [
+  {
+    q: "In the beginning, God created the heavens and the earth. What was the FIRST thing God said in Genesis 1?",
+    options: ["Let there be light", "Let the waters separate", "Let the land appear", "Let there be sky"],
+    answer: 0,
+    explanation: "Genesis 1:3 — 'And God said, Let there be light: and there was light.' God's first spoken word was light."
+  },
+  {
+    q: "How many days and nights did it rain during the flood of Noah?",
+    options: ["40 days and 40 nights", "30 days and 30 nights", "7 days and 7 nights", "100 days"],
+    answer: 0,
+    explanation: "Genesis 7:12 — 'The rain was on the earth forty days and forty nights.' This is one of Scripture's most iconic numbers."
+  },
+  {
+    q: "What was the name of Moses' wife?",
+    options: ["Miriam", "Zipporah", "Deborah", "Rahab"],
+    answer: 1,
+    explanation: "Exodus 2:21 — Moses married Zipporah, daughter of Jethro (Reuel), the priest of Midian."
+  },
+  {
+    q: "Which Psalm begins with the words 'The Lord is my shepherd; I shall not want'?",
+    options: ["Psalm 91", "Psalm 1", "Psalm 23", "Psalm 46"],
+    answer: 2,
+    explanation: "Psalm 23 — Written by David, the shepherd-king, this is one of the most beloved passages in all of Scripture."
+  },
+  {
+    q: "How many books are in the New Testament?",
+    options: ["22", "25", "27", "29"],
+    answer: 2,
+    explanation: "The New Testament contains 27 books, from Matthew through Revelation. The entire Bible has 66 books."
+  },
+  {
+    q: "Who interpreted Pharaoh's dreams in Egypt?",
+    options: ["Moses", "Daniel", "Joseph", "Aaron"],
+    answer: 2,
+    explanation: "Genesis 41 — Joseph interpreted Pharaoh's two dreams about 7 fat cows and 7 thin cows, predicting 7 years of plenty followed by 7 years of famine."
+  },
+  {
+    q: "Jesus performed His FIRST miracle at a wedding in which city?",
+    options: ["Jerusalem", "Bethlehem", "Nazareth", "Cana"],
+    answer: 3,
+    explanation: "John 2:1-11 — Jesus turned water into wine at a wedding in Cana of Galilee. This was the first of His signs."
+  },
+  {
+    q: "What is the shortest verse in the Bible?",
+    options: ["Rejoice always", "Jesus wept", "Pray without ceasing", "God is love"],
+    answer: 1,
+    explanation: "John 11:35 — 'Jesus wept.' Only two words in English, yet it reveals the compassionate humanity of our Lord at Lazarus's tomb."
+  },
+  {
+    q: "Which disciple denied Jesus three times before the rooster crowed?",
+    options: ["John", "Judas", "Thomas", "Peter"],
+    answer: 3,
+    explanation: "Matthew 26:75 — Peter denied knowing Jesus three times, just as Jesus had predicted. Afterwards, Peter wept bitterly — and was fully restored."
+  },
+  {
+    q: "In the book of Daniel, how many men were thrown into the fiery furnace?",
+    options: ["One", "Two", "Three", "Four"],
+    answer: 2,
+    explanation: "Daniel 3 — Shadrach, Meshach, and Abednego were thrown in — but a FOURTH figure appeared with them in the fire, whom many believe was a pre-incarnate appearance of Christ."
+  },
+  {
+    q: "Which book of the Bible contains the Sermon on the Mount?",
+    options: ["Mark", "Luke", "Matthew", "John"],
+    answer: 2,
+    explanation: "Matthew 5-7 — The Sermon on the Mount is the most extensive recorded teaching of Jesus, including the Beatitudes and the Lord's Prayer."
+  },
+  {
+    q: "Who was the wisest king in the Bible, known for asking God for wisdom?",
+    options: ["David", "Hezekiah", "Solomon", "Josiah"],
+    answer: 2,
+    explanation: "1 Kings 3:5-14 — Solomon asked God for an understanding heart to judge God's people. God was so pleased that He gave him both wisdom AND riches."
+  },
+  {
+    q: "What did the Holy Spirit appear as when He descended on Jesus at His baptism?",
+    options: ["A flame of fire", "A dove", "A rushing wind", "A cloud"],
+    answer: 1,
+    explanation: "Matthew 3:16 — 'He saw the Spirit of God descending like a dove and alighting on Him.' This was the Father, Son, and Spirit all present at once."
+  },
+  {
+    q: "How many books in the Bible contain the word 'God' in every chapter? (Trick question!)",
+    options: ["Most of them", "All 66", "Esther and Song of Solomon do not", "Only the Psalms"],
+    answer: 2,
+    explanation: "Interestingly, Esther and Song of Solomon never explicitly mention the name of God — yet His hand is unmistakable throughout both books."
+  },
+  {
+    q: "What is the last word in the Bible?",
+    options: ["Amen", "Forever", "Lord", "Come"],
+    answer: 0,
+    explanation: "Revelation 22:21 — 'The grace of the Lord Jesus Christ be with you all. Amen.' The entire Bible closes with this powerful word of affirmation."
+  }
+];
+
+let currentQ = 0, score = 0, answered = false;
+
+function startQuiz() {
+  document.getElementById('quizStart').style.display = 'none';
+  document.getElementById('quizActive').style.display = 'block';
+  currentQ = 0; score = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = quizQuestions[currentQ];
+  document.getElementById('quizQNum').textContent = `Question ${currentQ + 1}`;
+  document.getElementById('quizQuestion').textContent = q.q;
+  document.getElementById('quizProgressLabel').textContent = `Question ${currentQ + 1} of 15`;
+  document.getElementById('quizProgressBar').style.width = `${((currentQ + 1) / 15) * 100}%`;
+  document.getElementById('quizScoreDisplay').textContent = score;
+  document.getElementById('quizFeedback').textContent = '';
+  document.getElementById('quizExplanation').style.display = 'none';
+  document.getElementById('quizNextBtn').disabled = true;
+
+  const opts = document.getElementById('quizOptions');
+  opts.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(i);
+    opts.appendChild(btn);
+  });
+}
+
+function selectAnswer(selected) {
+  if (answered) return;
+  answered = true;
+  const q = quizQuestions[currentQ];
+  const opts = document.querySelectorAll('.quiz-option');
+  opts.forEach(b => b.disabled = true);
+
+  if (selected === q.answer) {
+    opts[selected].classList.add('correct');
+    score++;
+    document.getElementById('quizFeedback').textContent = '✅ Correct! Well done!';
+    document.getElementById('quizFeedback').style.color = '#7FD4A1';
+  } else {
+    opts[selected].classList.add('wrong');
+    opts[q.answer].classList.add('reveal-correct');
+    document.getElementById('quizFeedback').textContent = '❌ Not quite — see the correct answer above.';
+    document.getElementById('quizFeedback').style.color = '#FC8181';
+  }
+
+  const exp = document.getElementById('quizExplanation');
+  exp.textContent = q.explanation;
+  exp.style.display = 'block';
+  document.getElementById('quizNextBtn').disabled = false;
+  document.getElementById('quizScoreDisplay').textContent = score;
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= quizQuestions.length) {
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizActive').style.display = 'none';
+  const result = document.getElementById('quizResult');
+  result.style.display = 'block';
+  const pct = score / 15;
+  let icon, title, msg;
+  if (pct >= 0.93) { icon = '🏆'; title = 'Bible Champion!'; msg = `Incredible — ${score} out of 15! You know the Word deeply. Keep studying and teaching others!`; }
+  else if (pct >= 0.73) { icon = '🌟'; title = 'Well Done, Servant!'; msg = `${score} out of 15 — You have a solid foundation in Scripture. Keep going deeper!`; }
+  else if (pct >= 0.53) { icon = '📖'; title = 'Keep Growing!'; msg = `${score} out of 15 — A good start. The Word is a lamp unto your feet — keep reading daily!`; }
+  else { icon = '🌱'; title = 'Every Expert Was Once a Beginner!'; msg = `${score} out of 15 — Don't be discouraged. Come to Bible Study on Wednesdays at 6:30 PM and grow!`; }
+  document.getElementById('quizResultIcon').textContent = icon;
+  document.getElementById('quizResultScore').textContent = `${score}/15`;
+  document.getElementById('quizResultTitle').textContent = title;
+  document.getElementById('quizResultMsg').textContent = msg;
+}
+
+function restartQuiz() {
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('quizActive').style.display = 'block';
+  currentQ = 0; score = 0;
+  renderQuestion();
+}
+</script>
+</body>
+</html>
