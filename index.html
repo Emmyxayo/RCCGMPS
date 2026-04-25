@@ -814,6 +814,110 @@
   .fade-in-delay-1 { transition-delay: 0.1s; }
   .fade-in-delay-2 { transition-delay: 0.2s; }
   .fade-in-delay-3 { transition-delay: 0.3s; }
+
+  /* ===== FASHION FEST EVENT ===== */
+  .fashionfest-card {
+    background: linear-gradient(145deg, #1a0533 0%, #3a0d7a 40%, #1a0533 100%) !important;
+    border: 1px solid rgba(160,80,255,0.3);
+    position: relative; overflow: hidden;
+  }
+  .fashionfest-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(232,100,26,0.12), transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(160,80,255,0.15), transparent 50%);
+    pointer-events: none;
+  }
+  .ff-bg-overlay {
+    position: absolute; inset: 0;
+    background-image: url('fashionfest-logo.jpg');
+    background-size: 300px; background-position: right -40px top -40px;
+    background-repeat: no-repeat; opacity: 0.04;
+    pointer-events: none;
+  }
+  .ff-top-row {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 1rem;
+    margin-bottom: 1.25rem; position: relative; z-index: 2;
+  }
+  .ff-tag {
+    background: linear-gradient(90deg, #8B2BE2, #E8641A) !important;
+    font-size: 11px !important;
+  }
+  .ff-logo-img {
+    width: 56px; height: 56px; border-radius: 12px;
+    object-fit: cover; border: 2px solid rgba(255,255,255,0.2);
+    flex-shrink: 0;
+  }
+  .ff-anticipate-wrap {
+    border-radius: 14px; overflow: hidden;
+    margin-bottom: 1.5rem; position: relative; z-index: 2;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .ff-anticipate-img {
+    width: 100%; display: block;
+    object-fit: cover; max-height: 160px;
+  }
+  .ff-title {
+    font-size: 2rem !important; font-weight: 800 !important;
+    background: linear-gradient(90deg, #ffffff, #E8A0FF);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 0.75rem !important;
+    position: relative; z-index: 2;
+    letter-spacing: -1px !important;
+  }
+  .ff-desc {
+    color: rgba(255,255,255,0.78) !important;
+    line-height: 1.7; position: relative; z-index: 2;
+    font-size: 14px;
+  }
+  .ff-desc strong { color: #E8A0FF; }
+  .ff-pills {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin: 1.25rem 0; position: relative; z-index: 2;
+  }
+  .ff-pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 50px; padding: 4px 14px;
+    font-size: 12px; color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+  .ff-meta { position: relative; z-index: 2; }
+  .ff-cta {
+    display: inline-block; margin-top: 1.5rem;
+    background: linear-gradient(90deg, #8B2BE2, #E8641A);
+    color: white; text-decoration: none;
+    padding: 11px 22px; border-radius: 50px;
+    font-size: 13px; font-weight: 700;
+    transition: var(--transition); position: relative; z-index: 2;
+    letter-spacing: 0.3px;
+  }
+  .ff-cta:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,43,226,0.45); }
+
+  /* Fashion Fest side cards */
+  .ff-side-banner {
+    background: linear-gradient(135deg, #1a0533, #2d0d66);
+    border: 1px solid rgba(139,43,226,0.25);
+    border-radius: 14px; padding: 1.1rem 1.25rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    transition: var(--transition);
+  }
+  .ff-side-banner:hover { border-color: rgba(139,43,226,0.6); transform: translateX(4px); }
+  .ff-side-icon {
+    font-size: 1.6rem; min-width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ff-side-title { font-size: 13px; font-weight: 700; color: #E8A0FF; margin-bottom: 3px; }
+  .ff-side-sub { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+
+  .footer-social-img { background: transparent !important; padding: 0; overflow: hidden; border-radius: 10px; }
+  .footer-social-img img { width: 38px; height: 38px; object-fit: cover; border-radius: 10px; display: block; transition: var(--transition); }
+  .footer-social-img:hover img { transform: scale(1.1); opacity: 0.9; }
+  .footer-social-img:hover { background: transparent !important; }
+
 </style>
 </head>
 <body>
@@ -1148,75 +1252,92 @@
     </div>
     <h2 class="section-title fade-in">Upcoming Events</h2>
     <div class="events-grid fade-in">
-      <div class="event-featured">
-        <span class="event-featured-tag">⭐ Featured Event</span>
-        <h3>Kingdom Youth Conference 2025 — "REIGN"</h3>
-        <p>A three-day immersive conference for young adults and youth across Nigeria. Expect explosive worship, ministry from leading voices, breakout sessions, and life-changing encounters with God.</p>
-        <div class="event-featured-meta">
+
+      <!-- FASHION FEST FEATURED CARD -->
+      <div class="event-featured fashionfest-card">
+        <div class="ff-bg-overlay"></div>
+
+        <!-- top badge row -->
+        <div class="ff-top-row">
+          <span class="event-featured-tag ff-tag">✨ Headline Event · July 2026</span>
+          <img src="fashionfest-logo.jpg" alt="Fashion Fest" class="ff-logo-img">
+        </div>
+
+        <!-- anticipate banner -->
+        <div class="ff-anticipate-wrap">
+          <img src="fashionfest-anticipate.jpg" alt="Anticipate Fashion Fest 2026" class="ff-anticipate-img">
+        </div>
+
+        <!-- copy -->
+        <h3 class="ff-title">Fashion Fest 2026</h3>
+        <p class="ff-desc">Where the Kingdom meets the Runway. MPS presents <strong>Fashion Fest</strong> — a celebration of God-given creativity, culture, and style. Dress your best, come as a statement, and experience a fashion show like no other: rooted in faith, dripping in excellence.</p>
+
+        <div class="ff-pills">
+          <div class="ff-pill">🎨 Christian Fashion Show</div>
+          <div class="ff-pill">🎤 Live Performances</div>
+          <div class="ff-pill">📸 Style Exhibition</div>
+          <div class="ff-pill">🛍️ Designer Pop-ups</div>
+        </div>
+
+        <div class="event-featured-meta ff-meta">
           <div class="event-featured-meta-item">
-            <div class="event-featured-meta-label">Date</div>
-            <div class="event-featured-meta-val">May 23–25, 2025</div>
-          </div>
-          <div class="event-featured-meta-item">
-            <div class="event-featured-meta-label">Time</div>
-            <div class="event-featured-meta-val">5:00 PM Daily</div>
+            <div class="event-featured-meta-label">Month</div>
+            <div class="event-featured-meta-val">July 2026</div>
           </div>
           <div class="event-featured-meta-item">
             <div class="event-featured-meta-label">Venue</div>
-            <div class="event-featured-meta-val">MPS Auditorium</div>
+            <div class="event-featured-meta-val">Redemption Camp</div>
+          </div>
+          <div class="event-featured-meta-item">
+            <div class="event-featured-meta-label">Entry</div>
+            <div class="event-featured-meta-val">Free · All Welcome</div>
           </div>
         </div>
+
+        <a href="https://www.instagram.com/fashionfest.ng" target="_blank" class="ff-cta" rel="noopener">
+          Follow @fashionfest.ng for Updates →
+        </a>
       </div>
       <div class="events-list">
-        <div class="event-item">
-          <div class="event-date-box">
-            <div class="event-date-day">27</div>
-            <div class="event-date-month">Apr</div>
-          </div>
-          <div class="event-info">
-            <h4>Easter Sunday Celebration</h4>
-            <p>9:00 AM · Main Auditorium</p>
-          </div>
-        </div>
-        <div class="event-item">
-          <div class="event-date-box">
-            <div class="event-date-day">4</div>
-            <div class="event-date-month">May</div>
-          </div>
-          <div class="event-info">
-            <h4>Singles & Young Adults Night</h4>
-            <p>6:00 PM · Church Hall</p>
+
+        <!-- Fashion Fest teaser cards -->
+        <div class="ff-side-banner">
+          <div class="ff-side-icon">👗</div>
+          <div>
+            <div class="ff-side-title">Dress With Purpose</div>
+            <div class="ff-side-sub">Your style is a testimony. At Fashion Fest, every outfit tells a Kingdom story.</div>
           </div>
         </div>
-        <div class="event-item">
-          <div class="event-date-box">
-            <div class="event-date-day">10</div>
-            <div class="event-date-month">May</div>
-          </div>
-          <div class="event-info">
-            <h4>Mothers' Day Thanksgiving</h4>
-            <p>9:00 AM · Main Auditorium</p>
+        <div class="ff-side-banner">
+          <div class="ff-side-icon">🙌</div>
+          <div>
+            <div class="ff-side-title">Faith Meets Fashion</div>
+            <div class="ff-side-sub">Modesty never looked this powerful. Come see creativity redeemed for God's glory.</div>
           </div>
         </div>
-        <div class="event-item">
-          <div class="event-date-box">
-            <div class="event-date-day">17</div>
-            <div class="event-date-month">May</div>
-          </div>
-          <div class="event-info">
-            <h4>Street Evangelism Outreach</h4>
-            <p>8:00 AM · Lagos Island</p>
+        <div class="ff-side-banner">
+          <div class="ff-side-icon">🌟</div>
+          <div>
+            <div class="ff-side-title">The Kingdom Runway</div>
+            <div class="ff-side-sub">Watch anointed designers, models, and creators step out in excellence and purpose.</div>
           </div>
         </div>
+        <div class="ff-side-banner">
+          <div class="ff-side-icon">📣</div>
+          <div>
+            <div class="ff-side-title">Spread the Word</div>
+            <div class="ff-side-sub">Invite your friends, your squad, your campus. Fashion Fest is for everyone.</div>
+          </div>
+        </div>
+
+        <!-- Regular upcoming events -->
+        <div class="event-item" style="margin-top:0.5rem">
+          <div class="event-date-box"><div class="event-date-day">4</div><div class="event-date-month">May</div></div>
+          <div class="event-info"><h4>1st Sunday Thanksgiving</h4><p>8:00 AM · Main Auditorium</p></div>
+        </div>
         <div class="event-item">
-          <div class="event-date-box">
-            <div class="event-date-day">31</div>
-            <div class="event-date-month">May</div>
-          </div>
-          <div class="event-info">
-            <h4>Monthly Youth Sunday</h4>
-            <p>9:00 AM · Main Auditorium</p>
-          </div>
+          <div class="event-date-box"><div class="event-date-day">7</div><div class="event-date-month">May</div></div>
+          <div class="event-info"><h4>Dominion Service</h4><p>5:00 PM · Main Auditorium</p></div>
         </div>
       </div>
     </div>
@@ -1494,9 +1615,15 @@
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem"><img src="mps-logo.jpg" alt="RCCG MPS" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid rgba(232,100,26,0.4)"><div class="footer-brand-name" style="margin:0">RCCG Messiah's Praise Sanctuary</div></div>
         <p class="footer-brand-desc">A vibrant Young Adults & Youth Church in Lagos, Nigeria — raising a generation for God's Kingdom. Part of the Redeemed Christian Church of God global family.</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/rccg_mps" target="_blank" class="footer-social" title="Instagram">📸</a>
-          <a href="https://youtube.com/@rccgmps" target="_blank" class="footer-social" title="YouTube">▶</a>
-          <a href="https://wa.me/2347000000000" target="_blank" class="footer-social" title="WhatsApp">💬</a>
+          <a href="https://www.instagram.com/rccg_mps" target="_blank" class="footer-social footer-social-img" title="Instagram" rel="noopener">
+            <img src="icon-instagram.jpg" alt="Instagram">
+          </a>
+          <a href="https://youtube.com/@rccgmps" target="_blank" class="footer-social footer-social-img" title="YouTube" rel="noopener">
+            <img src="icon-youtube.png" alt="YouTube">
+          </a>
+          <a href="https://wa.me/2347000000000" target="_blank" class="footer-social footer-social-img" title="WhatsApp" rel="noopener">
+            <img src="icon-whatsapp.jpg" alt="WhatsApp">
+          </a>
         </div>
       </div>
       <div class="footer-col">
