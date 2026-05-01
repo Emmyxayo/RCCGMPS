@@ -918,6 +918,99 @@
   .footer-social-img:hover img { transform: scale(1.1); opacity: 0.9; }
   .footer-social-img:hover { background: transparent !important; }
 
+
+  /* ===== GALLERY GRID ===== */
+  #gallery { background: var(--navy); padding: 7rem 2rem; }
+  .gallery-header { text-align: center; margin-bottom: 3rem; }
+  .gallery-header .section-title { color: white; }
+  .gallery-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .gallery-grid-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    position: relative;
+    background: #0d1117;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-grid-item:hover { transform: scale(1.03); box-shadow: 0 12px 32px rgba(0,0,0,0.5); z-index: 1; }
+  .gallery-grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease; }
+  .gallery-grid-item:hover img { opacity: 0.85; }
+  .gallery-grid-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s ease;
+  }
+  .gallery-grid-item:hover .gallery-grid-overlay { background: rgba(232,100,26,0.18); }
+  .gallery-zoom-icon {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    opacity: 0; transform: scale(0.7);
+    transition: all 0.3s ease;
+  }
+  .gallery-grid-item:hover .gallery-zoom-icon { opacity: 1; transform: scale(1); }
+
+  /* Lightbox */
+  .glb {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.96);
+    align-items: center; justify-content: center;
+  }
+  .glb.open { display: flex; }
+  .glb-img {
+    max-width: 88vw; max-height: 88vh;
+    object-fit: contain; border-radius: 10px;
+    display: block;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+    user-select: none;
+  }
+  .glb-close {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%; color: white; font-size: 22px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .glb-close:hover { background: var(--orange); border-color: var(--orange); }
+  .glb-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%; color: white; font-size: 28px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; user-select: none;
+  }
+  .glb-nav:hover { background: var(--orange); border-color: var(--orange); }
+  .glb-prev { left: 1.25rem; }
+  .glb-next { right: 1.25rem; }
+  .glb-counter {
+    position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.55); font-size: 13px; letter-spacing: 1px;
+    background: rgba(0,0,0,0.4); padding: 4px 16px; border-radius: 50px;
+  }
+
+
+  @media (max-width: 700px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .glb-nav { width: 40px; height: 40px; font-size: 22px; }
+    .glb-prev { left: 0.5rem; }
+    .glb-next { right: 0.5rem; }
+    .glb-img { max-width: 96vw; max-height: 80vh; }
+  }
+
 </style>
 </head>
 <body>
@@ -936,6 +1029,7 @@
     <a href="#services">Services</a>
     <a href="#sermons">Sermons</a>
     <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
     <a href="#quiz">Bible Quiz</a>
     <a href="#giving">Give</a>
     <a href="#contact" class="nav-cta">Join Us</a>
@@ -951,6 +1045,7 @@
   <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#sermons" onclick="closeMenu()">Sermons</a>
   <a href="#events" onclick="closeMenu()">Events</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
   <a href="#quiz" onclick="closeMenu()">Bible Quiz</a>
   <a href="#giving" onclick="closeMenu()">Give</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
@@ -1010,7 +1105,7 @@
           <p>A parish of the Redeemed Christian Church of God — raising a generation who worship in truth, serve with excellence, and impact their world for Christ.</p>
         </div>
         <div class="about-card-float">
-          <div class="about-card-float-num">2014</div>
+          <div class="about-card-float-num">2009</div>
           <div class="about-card-float-label">Established</div>
         </div>
       </div>
@@ -1058,19 +1153,19 @@
         <div class="service-icon">🙌</div>
         <h3>Sunday Service</h3>
         <p>Our weekly gathering of praise, worship and the Word. Come encounter God and connect with a community that loves you every Sunday morning.</p>
-        <div class="service-time">⏰ Every Sunday · 8:00 AM</div>
+        <div class="service-time">⏰ Every Sunday · 7:50 AM</div>
       </div>
       <div class="service-card fade-in fade-in-delay-1">
         <div class="service-icon">🎉</div>
         <h3>Thanksgiving Service</h3>
         <p>A special first-Sunday celebration where we lift our voices in gratitude to God for His faithfulness over the previous month. Come and give thanks!</p>
-        <div class="service-time">⏰ 1st Sunday Monthly · 8:00 AM</div>
+        <div class="service-time">⏰ 1st Sunday Monthly · 7:50 AM</div>
       </div>
       <div class="service-card fade-in fade-in-delay-2">
         <div class="service-icon">👑</div>
         <h3>Dominion Service</h3>
         <p>Our midweek power service — an evening of deep worship, prophetic teaching, and intercession to keep your spirit dominant all week long.</p>
-        <div class="service-time">⏰ Every Wednesday · 5:00 PM</div>
+        <div class="service-time">⏰ Every Wednesday · 5:50 PM</div>
       </div>
     </div>
   </div>
@@ -1176,12 +1271,12 @@
           </div>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
             <div style="font-size:40px">📡</div>
-            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center">Sunday Service · 8:00 AM<br><span style="color:var(--orange-light)">Join us live every week</span></span>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center">Sunday Service · 7:50 AM<br><span style="color:var(--orange-light)">Join us live every week</span></span>
           </div>
         </div>
         <div class="sermon-body">
           <div class="sermon-series">Live Stream</div>
-          <div class="sermon-title">Join Sunday Service Live — Every Sunday 8:00 AM</div>
+          <div class="sermon-title">Join Sunday Service Live — Every Sunday 7:50 AM</div>
           <div class="sermon-meta">
             <span>📡 Watch Live on YouTube</span>
           </div>
@@ -1193,14 +1288,14 @@
           <div class="sermon-thumb-pattern"></div>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
             <div style="font-size:40px">👑</div>
-            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center;padding:0 1rem">Dominion Service<br><span style="color:var(--orange-light);font-size:12px">Every Wednesday · 5:00 PM</span></span>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;text-align:center;padding:0 1rem">Dominion Service<br><span style="color:var(--orange-light);font-size:12px">Every Wednesday · 5:50 PM</span></span>
           </div>
         </div>
         <div class="sermon-body">
           <div class="sermon-series">Dominion Service</div>
           <div class="sermon-title">Midweek Power & Prophetic Teaching — Watch Replays</div>
           <div class="sermon-meta">
-            <span>⏰ Wednesdays · 5:00 PM</span>
+            <span>⏰ Wednesdays · 5:50 PM</span>
           </div>
         </div>
       </div>
@@ -1333,11 +1428,11 @@
         <!-- Regular upcoming events -->
         <div class="event-item" style="margin-top:0.5rem">
           <div class="event-date-box"><div class="event-date-day">4</div><div class="event-date-month">May</div></div>
-          <div class="event-info"><h4>1st Sunday Thanksgiving</h4><p>8:00 AM · Main Auditorium</p></div>
+          <div class="event-info"><h4>1st Sunday Thanksgiving</h4><p>7:50 AM · Main Auditorium</p></div>
         </div>
         <div class="event-item">
           <div class="event-date-box"><div class="event-date-day">7</div><div class="event-date-month">May</div></div>
-          <div class="event-info"><h4>Dominion Service</h4><p>5:00 PM · Main Auditorium</p></div>
+          <div class="event-info"><h4>Dominion Service</h4><p>5:50 PM · Main Auditorium</p></div>
         </div>
       </div>
     </div>
@@ -1522,6 +1617,34 @@
   </div>
 </section>
 
+
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-in">
+      <div class="section-label" style="justify-content:center">
+        <div class="section-label-line"></div>
+        <span style="color:var(--orange-light)">Photo Gallery</span>
+      </div>
+      <h2 class="section-title">Moments from MPS</h2>
+      <p class="section-sub">Real people. Real encounters. Snapshots of God moving at Messiah's Praise Sanctuary.</p>
+    </div>
+
+    <div class="gallery-grid fade-in" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="glb" id="glb">
+  <button class="glb-close" onclick="glbClose()">&#215;</button>
+  <button class="glb-nav glb-prev" onclick="glbMove(-1)">&#8249;</button>
+  <img src="" alt="" class="glb-img" id="glbImg">
+  <button class="glb-nav glb-next" onclick="glbMove(1)">&#8250;</button>
+  <div class="glb-counter" id="glbCounter">1 / 18</div>
+</div>
+
+
 <!-- NEWSLETTER -->
 <section id="newsletter">
   <div class="container">
@@ -1633,6 +1756,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#sermons">Sermons</a></li>
           <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1640,15 +1764,15 @@
         <ul>
           <li><a href="#giving">Online Giving</a></li>
           <li><a href="#prayer">Prayer Requests</a></li>
-          <li><a href="#quiz">Bible Quiz</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Service Times</h4>
         <ul>
-          <li><a href="#">Sunday — 8:00 AM</a></li>
-          <li><a href="#">Wednesday (Dominion) — 5:00 PM</a></li>
+          <li><a href="#">Sunday — 7:50 AM</a></li>
+          <li><a href="#">Wednesday (Dominion) — 5:50 PM</a></li>
           <li><a href="#">1st Sunday Thanksgiving</a></li>
         </ul>
       </div>
@@ -1718,15 +1842,15 @@ function buildYTGrid() {
     </div>
     <div class="yt-video-info">
       <div class="yt-video-title">Latest Upload — RCCG MPS</div>
-      <div class="yt-video-date">Live every Sunday 8AM & Wednesday 5PM</div>
+      <div class="yt-video-date">Live every Sunday 7:50AM & Wednesday 5:50PM</div>
     </div>
   `;
   grid.appendChild(embedDiv);
 
   // Slots 2-6: Styled tiles representing service types
   const tiles = [
-    { icon: '☀️', label: 'Sunday Service', sub: 'Every Sunday · 8:00 AM', bg: '#0d1829' },
-    { icon: '👑', label: 'Dominion Service', sub: 'Every Wednesday · 5:00 PM', bg: '#130d24' },
+    { icon: '☀️', label: 'Sunday Service', sub: 'Every Sunday · 7:50 AM', bg: '#0d1829' },
+    { icon: '👑', label: 'Dominion Service', sub: 'Every Wednesday · 5:50 PM', bg: '#130d24' },
     { icon: '🎉', label: 'Thanksgiving Service', sub: '1st Sunday Monthly', bg: '#1a1205' },
     { icon: '🔥', label: 'Special Programmes', sub: 'Watch Full Playlist', bg: '#1a0d0d' },
     { icon: '🙏', label: 'Prayer & Worship', sub: 'Anytime, Anywhere', bg: '#0a1520' },
@@ -2000,6 +2124,141 @@ function restartQuiz() {
   currentQ = 0; score = 0;
   renderQuestion();
 }
+
+// ===== GALLERY GRID =====
+(function() {
+  var images = [
+    { src: 'gallery-1.jpg' },
+    { src: 'gallery-2.jpg' },
+    { src: 'gallery-3.jpg' },
+    { src: 'gallery-4.jpg' },
+    { src: 'gallery-5.jpg' },
+    { src: 'gallery-6.jpg' },
+    { src: 'gallery-7.jpg' },
+    { src: 'gallery-8.jpg' },
+    { src: 'gallery-9.jpg' },
+    { src: 'gallery-10.jpg' },
+    { src: 'gallery-11.jpg' },
+    { src: 'gallery-12.jpg' },
+    { src: 'gallery-13.jpg' },
+    { src: 'gallery-14.jpg' },
+    { src: 'gallery-15.jpg' },
+    { src: 'gallery-16.jpg' },
+    { src: 'gallery-17.jpg' },
+    { src: 'gallery-18.jpg' }
+  ];
+
+  var current = 0;
+
+  // Build grid
+  function buildGrid() {
+    var grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    images.forEach(function(img, i) {
+      var item = document.createElement('div');
+      item.className = 'gallery-grid-item';
+
+      var imgEl = document.createElement('img');
+      imgEl.src = img.src;
+      imgEl.alt = '';
+      imgEl.loading = i < 6 ? 'eager' : 'lazy';
+
+      var overlay = document.createElement('div');
+      overlay.className = 'gallery-grid-overlay';
+
+      var zoom = document.createElement('div');
+      zoom.className = 'gallery-zoom-icon';
+      zoom.textContent = '+';
+
+      overlay.appendChild(zoom);
+      item.appendChild(imgEl);
+      item.appendChild(overlay);
+
+      item.addEventListener('click', (function(idx) {
+        return function() { glbOpen(idx); };
+      })(i));
+
+      grid.appendChild(item);
+    });
+  }
+
+  // Lightbox open
+  window.glbOpen = function(idx) {
+    current = idx;
+    updateLightbox();
+    document.getElementById('glb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Lightbox close
+  window.glbClose = function() {
+    document.getElementById('glb').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  // Lightbox navigation
+  window.glbMove = function(dir) {
+    current = ((current + dir) + images.length) % images.length;
+    updateLightbox();
+  };
+
+  function updateLightbox() {
+    var img = document.getElementById('glbImg');
+    var counter = document.getElementById('glbCounter');
+    if (img) img.src = images[current].src;
+    if (counter) counter.textContent = (current + 1) + ' / ' + images.length;
+  }
+
+  // Click backdrop to close
+  document.addEventListener('DOMContentLoaded', function() {
+    var lb = document.getElementById('glb');
+    if (lb) {
+      lb.addEventListener('click', function(e) {
+        if (e.target === lb) window.glbClose();
+      });
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('glb');
+    if (!lb || !lb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') window.glbMove(-1);
+    if (e.key === 'ArrowRight') window.glbMove(1);
+    if (e.key === 'Escape') window.glbClose();
+  });
+
+  // Touch/swipe on lightbox
+  var touchStartX = 0;
+  document.addEventListener('touchstart', function(e) {
+    var lb = document.getElementById('glb');
+    if (lb && lb.classList.contains('open')) {
+      touchStartX = e.touches[0].clientX;
+    }
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    var lb = document.getElementById('glb');
+    if (lb && lb.classList.contains('open')) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) window.glbMove(diff > 0 ? 1 : -1);
+    }
+  });
+
+  // Init
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildGrid);
+  } else {
+    buildGrid();
+  }
+})();
+
+// Start auto-play
+galleryTimer = setInterval(galleryNext, 3000);
+
+
+// ===== GALLERY =====
+
+
 </script>
 </body>
 </html>
