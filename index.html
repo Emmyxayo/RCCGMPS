@@ -770,6 +770,117 @@
   }
   .footer-rccg { color: var(--orange-light); }
 
+  /* ===== KINGDOM CHALLENGE ===== */
+  #kingdom-challenge { background: var(--navy); }
+  .kc-header { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
+  .kc-header .section-title { color: white; }
+  .kc-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+  .kc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+  .kc-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 2rem;
+    transition: var(--transition); position: relative; overflow: hidden;
+  }
+  .kc-card:hover { border-color: var(--orange); transform: translateY(-4px); background: rgba(255,255,255,0.06); }
+  .kc-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--orange); transform: scaleX(0); transition: var(--transition); transform-origin: left;
+  }
+  .kc-card:hover::before { transform: scaleX(1); }
+  .kc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .kc-card h3 { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+  .kc-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+  .kc-prize {
+    margin-top: 1rem; display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.35);
+    border-radius: 50px; padding: 4px 14px;
+    font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 0.5px;
+  }
+  .kc-banner {
+    background: linear-gradient(135deg, rgba(232,100,26,0.15), rgba(212,168,67,0.1));
+    border: 1px solid rgba(232,100,26,0.3);
+    border-radius: 20px; padding: 2rem 2.5rem;
+    display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .kc-banner-text h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: white; margin-bottom: 0.4rem; }
+  .kc-banner-text p { color: rgba(255,255,255,0.65); font-size: 14px; }
+  .kc-leaderboard {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; overflow: hidden; margin-top: 2rem;
+  }
+  .kc-leaderboard-head { padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+  .kc-leaderboard-head span { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); }
+  .kc-lb-row {
+    display: flex; align-items: center; gap: 1rem; padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05); transition: var(--transition);
+  }
+  .kc-lb-row:last-child { border-bottom: none; }
+  .kc-lb-row:hover { background: rgba(255,255,255,0.03); }
+  .kc-lb-rank { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: rgba(255,255,255,0.3); min-width: 28px; }
+  .kc-lb-rank.gold { color: #FFD700; }
+  .kc-lb-rank.silver { color: #C0C0C0; }
+  .kc-lb-rank.bronze { color: #CD7F32; }
+  .kc-lb-name { flex: 1; font-size: 14px; color: white; font-weight: 500; }
+  .kc-lb-type { font-size: 11px; color: rgba(255,255,255,0.4); }
+  .kc-lb-score { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--orange-light); font-size: 14px; }
+
+
+
+  /* ===== EASTER EGG ===== */
+  .easter-egg-trigger {
+    position: absolute; bottom: 8px; right: 14px;
+    width: 26px; height: 26px; opacity: 0.35;
+    cursor: pointer; z-index: 10;
+    border: none; background: none; padding: 0;
+    font-size: 16px; line-height: 1;
+    transition: opacity 0.25s, transform 0.25s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .easter-egg-trigger:hover { opacity: 1; transform: scale(1.2); }
+  .easter-egg-modal {
+    display: none; position: fixed; inset: 0; z-index: 99999;
+    background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
+  }
+  .easter-egg-modal.open { display: flex; }
+  .easter-egg-box {
+    background: linear-gradient(135deg, var(--navy), #2E3560);
+    border: 2px solid var(--gold);
+    border-radius: 24px; padding: 3rem 2.5rem;
+    max-width: 420px; width: 90%; text-align: center;
+    position: relative; overflow: hidden;
+    animation: eggPop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes eggPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .easter-egg-box::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(212,168,67,0.15), transparent 60%);
+    pointer-events: none;
+  }
+  .easter-egg-icon { font-size: 64px; margin-bottom: 1rem; display: block; animation: spin 1s ease; }
+  @keyframes spin { from { transform: rotate(-20deg) scale(0.8); } to { transform: rotate(0deg) scale(1); } }
+  .easter-egg-title {
+    font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+    color: var(--gold); margin-bottom: 0.5rem; letter-spacing: -0.5px;
+  }
+  .easter-egg-code {
+    font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+    color: white; background: rgba(212,168,67,0.15); border: 1.5px dashed var(--gold);
+    border-radius: 12px; padding: 0.75rem 1.5rem; margin: 1.25rem 0;
+    letter-spacing: 4px; cursor: pointer; transition: var(--transition);
+    display: inline-block;
+  }
+  .easter-egg-code:hover { background: rgba(212,168,67,0.25); }
+  .easter-egg-sub { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin-bottom: 1.5rem; }
+  .easter-egg-close {
+    background: var(--orange); color: white; border: none;
+    padding: 10px 28px; border-radius: 50px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; transition: var(--transition);
+  }
+  .easter-egg-close:hover { background: var(--orange-dark); }
+
   /* ===== TOAST ===== */
   .toast {
     position: fixed; bottom: 6rem; left: 50%; transform: translateX(-50%) translateY(100px);
@@ -1027,6 +1138,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#kingdom-challenge">🏆 Challenge</a>
     <a href="#sermons">Sermons</a>
     <a href="#events">Events</a>
     <a href="#gallery">Gallery</a>
@@ -1043,6 +1155,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#kingdom-challenge" onclick="closeMenu()">🏆 Challenge</a>
   <a href="#sermons" onclick="closeMenu()">Sermons</a>
   <a href="#events" onclick="closeMenu()">Events</a>
   <a href="#gallery" onclick="closeMenu()">Gallery</a>
@@ -1171,6 +1284,68 @@
   </div>
 </section>
 
+<!-- KINGDOM CHALLENGE -->
+<section id="kingdom-challenge">
+  <div class="container">
+    <div class="kc-header fade-in">
+      <div class="section-label" style="justify-content:center">
+        <div class="section-label-line"></div>
+        <span style="color:var(--orange-light)">Weekly Competition</span>
+      </div>
+      <h2 class="section-title" style="color:white">🏆 Kingdom Challenge</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6)">Every week, MPS members compete in three kingdom-impact categories. The creator with the highest views & likes wins <strong style="color:var(--gold)">real cash</strong> — weekly. Are you bold enough?</p>
+    </div>
+    <div class="kc-grid fade-in">
+      <div class="kc-card">
+        <div class="kc-icon">🎭</div>
+        <h3>Skit Challenge</h3>
+        <p>Write, direct, and act in a short skit (60–90 seconds) that communicates the Gospel in a creative, cultural, or comedic way. Post it with <strong style="color:white">#MPSSkitChallenge</strong> on Instagram or TikTok.</p>
+        <div class="kc-prize">🏆 ₦5,000 weekly</div>
+      </div>
+      <div class="kc-card">
+        <div class="kc-icon">🕊️</div>
+        <h3>Soul Winning Report</h3>
+        <p>Share a real testimony of a person you led to Christ or invited to church this week. Post a photo/video with the person's permission. Use <strong style="color:white">#MPSSoulWin</strong>. Most engaging post wins.</p>
+        <div class="kc-prize">🏆 ₦5,000 weekly</div>
+      </div>
+      <div class="kc-card">
+        <div class="kc-icon">❤️</div>
+        <h3>Charity Challenge</h3>
+        <p>Document a random act of kindness — feeding the homeless, visiting the elderly, helping a neighbour. Post with <strong style="color:white">#MPSKindness</strong>. Highest views/likes wins. Kingdom impact = currency.</p>
+        <div class="kc-prize">🏆 ₦5,000 weekly</div>
+      </div>
+    </div>
+    <div class="kc-banner fade-in">
+      <div class="kc-banner-text">
+        <h3>How to Enter & Win 💰</h3>
+        <p>Post your entry on Instagram or TikTok · Tag <strong style="color:white">@rccg_mps</strong> · Use the challenge hashtag · Get your friends to like & share · Winners announced every Sunday at service & on our Instagram story</p>
+      </div>
+      <a href="https://wa.me/2348108586907?text=I%20want%20to%20join%20the%20Kingdom%20Challenge!" target="_blank" class="btn-primary" style="white-space:nowrap;flex-shrink:0">Enter This Week →</a>
+    </div>
+    <div class="kc-leaderboard fade-in">
+      <div class="kc-leaderboard-head">
+        <span>📥 Submit Your Entry</span>
+        <span style="color:rgba(255,255,255,0.3);font-size:11px">Winners checked every Sunday</span>
+      </div>
+      <div style="padding:1.5rem">
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:1.25rem;line-height:1.6">Post your challenge on Instagram or TikTok, then submit your entry below. We'll check the links every Sunday and announce the winner with the highest engagement.</p>
+        <div style="display:flex;flex-direction:column;gap:0.85rem">
+          <input id="kcName" type="text" placeholder="Your full name" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.12);border-radius:10px;color:white;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+          <select id="kcCategory" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.12);border-radius:10px;color:rgba(255,255,255,0.8);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+            <option value="">Select your challenge category...</option>
+            <option value="skit">🎭 Skit Challenge</option>
+            <option value="soulwin">🕊️ Soul Winning Report</option>
+            <option value="charity">❤️ Charity Challenge</option>
+          </select>
+          <input id="kcLink" type="url" placeholder="Paste your post link (Instagram / TikTok)" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.12);border-radius:10px;color:white;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.3s" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+          <button onclick="submitKCEntry()" style="width:100%;padding:13px;background:var(--orange);color:white;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:background 0.3s;letter-spacing:0.3px" onmouseover="this.style.background='var(--orange-dark)'" onmouseout="this.style.background='var(--orange)'">📤 Submit My Entry</button>
+        </div>
+        <p id="kcFormMsg" style="display:none;margin-top:1rem;font-size:13px;text-align:center"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LIVE STREAM -->
 <section id="livestream">
   <div class="container">
@@ -1199,7 +1374,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         Follow on Instagram
       </a>
-      <a href="https://wa.me/2347000000000" target="_blank" class="stream-link" rel="noopener">
+      <a href="https://wa.me/2348108586907" target="_blank" class="stream-link" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         Join WhatsApp Community
       </a>
@@ -1545,14 +1720,16 @@
           <label class="form-label">Email Address</label>
           <input class="form-input" type="email" placeholder="For receipt" id="givingEmail">
         </div>
-        <button class="btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:16px" onclick="initiatePayment()">
+        <button class="btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:16px;position:relative" onclick="initiatePayment()">
           💳 Give Now via Paystack
+          <button class="easter-egg-trigger" onclick="event.stopPropagation();openEasterEgg()" title="" aria-hidden="true">🎁</button>
         </button>
         <p class="paystack-note">🔒 Secured by Paystack · Nigerian Payment Gateway</p>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- BIBLE QUIZ -->
 <section id="quiz">
@@ -1682,7 +1859,7 @@
             <div class="contact-item-icon">📞</div>
             <div class="contact-item-text">
               <h4>Phone / WhatsApp</h4>
-              <p><a href="tel:+2347000000000">+234 700 000 0000</a></p>
+              <p><a href="tel:+2348108586907">+234 810 858 6907</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -1744,7 +1921,7 @@
           <a href="https://youtube.com/@rccgmps" target="_blank" class="footer-social footer-social-img" title="YouTube" rel="noopener">
             <img src="icon-youtube.png" alt="YouTube">
           </a>
-          <a href="https://wa.me/2347000000000" target="_blank" class="footer-social footer-social-img" title="WhatsApp" rel="noopener">
+          <a href="https://wa.me/2348108586907" target="_blank" class="footer-social footer-social-img" title="WhatsApp" rel="noopener">
             <img src="icon-whatsapp.jpg" alt="WhatsApp">
           </a>
         </div>
@@ -1785,9 +1962,21 @@
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/2347000000000" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+<a href="https://wa.me/2348108586907" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
 </a>
+
+<!-- EASTER EGG MODAL -->
+<div class="easter-egg-modal" id="easterEggModal" onclick="if(event.target===this)closeEasterEgg()">
+  <div class="easter-egg-box">
+    <span class="easter-egg-icon">🎁</span>
+    <div class="easter-egg-title">You Found It! 🏆</div>
+    <p class="easter-egg-sub">Congratulations, Kingdom explorer! You've uncovered the hidden MPS gift voucher. Claim your ₦5,000 gift below — tap the code to copy it, then show it to an usher or DM us on Instagram.</p>
+    <div class="easter-egg-code" onclick="copyVoucher(this)" title="Tap to copy">MPS-GIFT-5K</div>
+    <p class="easter-egg-sub" style="font-size:12px;margin-bottom:1.25rem">Valid for one use only · Expires end of month · Must be present at MPS to redeem</p>
+    <button class="easter-egg-close" onclick="closeEasterEgg()">Claim My Gift 🎉</button>
+  </div>
+</div>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
@@ -2254,6 +2443,46 @@ function restartQuiz() {
 
 // Start auto-play
 galleryTimer = setInterval(galleryNext, 3000);
+
+
+// ===== EASTER EGG =====
+function openEasterEgg() {
+  document.getElementById('easterEggModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeEasterEgg() {
+  document.getElementById('easterEggModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function copyVoucher(el) {
+  navigator.clipboard.writeText('MPS-GIFT-5K').then(() => {
+    el.textContent = '✅ COPIED!';
+    setTimeout(() => { el.textContent = 'MPS-GIFT-5K'; }, 2000);
+  });
+}
+
+// ===== KINGDOM CHALLENGE ENTRY =====
+function submitKCEntry() {
+  const name = document.getElementById('kcName').value.trim();
+  const cat = document.getElementById('kcCategory').value;
+  const link = document.getElementById('kcLink').value.trim();
+  const msg = document.getElementById('kcFormMsg');
+  if (!name || !cat || !link) {
+    msg.style.display = 'block';
+    msg.style.color = '#FC8181';
+    msg.textContent = '⚠️ Please fill in all fields before submitting.';
+    return;
+  }
+  const catLabels = { skit: '🎭 Skit Challenge', soulwin: '🕊️ Soul Winning', charity: '❤️ Charity Challenge' };
+  const waText = encodeURIComponent(`🏆 Kingdom Challenge Entry\n\nName: ${name}\nCategory: ${catLabels[cat]}\nPost Link: ${link}\n\nPlease check my entry! 🙏`);
+  window.open(`https://wa.me/2348108586907?text=${waText}`, '_blank');
+  msg.style.display = 'block';
+  msg.style.color = '#7FD4A1';
+  msg.textContent = '✅ Entry submitted! We\'ll review your post before Sunday. Good luck! 🏆';
+  document.getElementById('kcName').value = '';
+  document.getElementById('kcCategory').value = '';
+  document.getElementById('kcLink').value = '';
+}
 
 
 // ===== GALLERY =====
