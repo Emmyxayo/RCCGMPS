@@ -448,7 +448,7 @@
 
   /* ===== EVENTS ===== */
   #events { background: var(--cream); }
-  .events-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .events-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
   .event-featured {
     background: var(--navy);
     border-radius: 20px;
@@ -478,7 +478,7 @@
   .event-featured-meta-item { display: flex; flex-direction: column; gap: 2px; }
   .event-featured-meta-label { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
   .event-featured-meta-val { font-size: 15px; font-weight: 600; color: var(--orange-light); }
-  .events-list { display: flex; flex-direction: column; gap: 1rem; }
+  .events-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; align-content: start; }
   .event-item {
     background: white;
     border-radius: 14px;
@@ -549,6 +549,63 @@
     background: var(--orange); border-color: var(--orange);
   }
   .paystack-note { font-size: 11px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 1rem; }
+
+  /* ----- Church account details ----- */
+  .accounts-block { margin-top: 2.5rem; }
+  .accounts-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .accounts-note { font-size: 13.5px; color: var(--gray-600); line-height: 1.7; }
+  .accounts-note strong { color: var(--navy); font-weight: 600; }
+  .accounts-narration {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; color: var(--orange-dark);
+    background: rgba(232,100,26,0.07);
+    border: 1px solid rgba(232,100,26,0.18);
+    border-radius: 10px; padding: 10px 14px;
+    margin: 0.85rem 0 1.5rem;
+    line-height: 1.6;
+  }
+  .account-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .account-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    padding: 1.15rem 1.25rem;
+    transition: var(--transition);
+  }
+  .account-card:hover {
+    border-color: rgba(232,100,26,0.45);
+    box-shadow: 0 8px 24px rgba(26,31,58,0.07);
+    transform: translateY(-2px);
+  }
+  .account-purpose {
+    display: inline-block;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--orange); background: rgba(232,100,26,0.09);
+    padding: 4px 10px; border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+  .account-bank { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .account-num-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .account-num {
+    font-size: 19px; font-weight: 700; color: var(--navy);
+    letter-spacing: 1.5px; line-height: 1.3;
+  }
+  .account-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.4px;
+    color: var(--orange); background: rgba(232,100,26,0.08);
+    border: 1px solid rgba(232,100,26,0.2);
+    border-radius: 8px; padding: 5px 10px;
+    cursor: pointer; white-space: nowrap;
+    transition: var(--transition);
+  }
+  .account-copy:hover { background: var(--orange); border-color: var(--orange); color: white; }
+  .account-copy.copied { background: rgba(42,122,75,0.1); border-color: rgba(42,122,75,0.3); color: var(--green); }
+  .account-holder { font-size: 12px; color: var(--gray-400); margin-top: 0.6rem; }
 
   /* ===== PRAYER ===== */
   #prayer { background: var(--cream); }
@@ -935,6 +992,7 @@
     .footer-grid { grid-template-columns: 1fr; }
     .about-values { grid-template-columns: 1fr; }
     .giving-amounts { grid-template-columns: repeat(3, 1fr); }
+    .account-grid { grid-template-columns: 1fr; }
   }
 
   /* ===== SCROLL ANIMATIONS ===== */
@@ -946,107 +1004,6 @@
   .fade-in-delay-1 { transition-delay: 0.1s; }
   .fade-in-delay-2 { transition-delay: 0.2s; }
   .fade-in-delay-3 { transition-delay: 0.3s; }
-
-  /* ===== FASHION FEST EVENT ===== */
-  .fashionfest-card {
-    background: linear-gradient(145deg, #1a0533 0%, #3a0d7a 40%, #1a0533 100%) !important;
-    border: 1px solid rgba(160,80,255,0.3);
-    position: relative; overflow: hidden;
-  }
-  .fashionfest-card::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(232,100,26,0.12), transparent 50%),
-                radial-gradient(circle at 10% 80%, rgba(160,80,255,0.15), transparent 50%);
-    pointer-events: none;
-  }
-  .ff-bg-overlay {
-    position: absolute; inset: 0;
-    background-image: url('fashionfest-logo.jpg');
-    background-size: 300px; background-position: right -40px top -40px;
-    background-repeat: no-repeat; opacity: 0.04;
-    pointer-events: none;
-  }
-  .ff-top-row {
-    display: flex; align-items: flex-start;
-    justify-content: space-between; gap: 1rem;
-    margin-bottom: 1.25rem; position: relative; z-index: 2;
-  }
-  .ff-tag {
-    background: linear-gradient(90deg, #8B2BE2, #E8641A) !important;
-    font-size: 11px !important;
-  }
-  .ff-logo-img {
-    width: 56px; height: 56px; border-radius: 12px;
-    object-fit: cover; border: 2px solid rgba(255,255,255,0.2);
-    flex-shrink: 0;
-  }
-  .ff-anticipate-wrap {
-    border-radius: 14px; overflow: hidden;
-    margin-bottom: 1.5rem; position: relative; z-index: 2;
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  }
-  .ff-anticipate-img {
-    width: 100%; display: block;
-    object-fit: cover; max-height: 160px;
-  }
-  .ff-title {
-    font-size: 2rem !important; font-weight: 800 !important;
-    background: linear-gradient(90deg, #ffffff, #E8A0FF);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text; margin-bottom: 0.75rem !important;
-    position: relative; z-index: 2;
-    letter-spacing: -1px !important;
-  }
-  .ff-desc {
-    color: rgba(255,255,255,0.78) !important;
-    line-height: 1.7; position: relative; z-index: 2;
-    font-size: 14px;
-  }
-  .ff-desc strong { color: #E8A0FF; }
-  .ff-pills {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-    margin: 1.25rem 0; position: relative; z-index: 2;
-  }
-  .ff-pill {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 50px; padding: 4px 14px;
-    font-size: 12px; color: rgba(255,255,255,0.85);
-    font-weight: 500;
-  }
-  .ff-meta { position: relative; z-index: 2; }
-  .ff-cta {
-    display: inline-block; margin-top: 1.5rem;
-    background: linear-gradient(90deg, #8B2BE2, #E8641A);
-    color: white; text-decoration: none;
-    padding: 11px 22px; border-radius: 50px;
-    font-size: 13px; font-weight: 700;
-    transition: var(--transition); position: relative; z-index: 2;
-    letter-spacing: 0.3px;
-  }
-  .ff-cta:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,43,226,0.45); }
-
-  /* Fashion Fest side cards */
-  .ff-side-banner {
-    background: linear-gradient(135deg, #1a0533, #2d0d66);
-    border: 1px solid rgba(139,43,226,0.25);
-    border-radius: 14px; padding: 1.1rem 1.25rem;
-    display: flex; align-items: flex-start; gap: 1rem;
-    transition: var(--transition);
-  }
-  .ff-side-banner:hover { border-color: rgba(139,43,226,0.6); transform: translateX(4px); }
-  .ff-side-icon {
-    font-size: 1.6rem; min-width: 36px; height: 36px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .ff-side-title { font-size: 13px; font-weight: 700; color: #E8A0FF; margin-bottom: 3px; }
-  .ff-side-sub { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; }
-
-
-
-
 
   /* ===== GALLERY GRID ===== */
   #gallery { background: var(--navy); padding: 7rem 2rem; }
@@ -1591,9 +1548,48 @@
           <div class="giving-feature"><div class="giving-check">✓</div> 100% secure via Paystack — Nigerian gateway</div>
           <div class="giving-feature"><div class="giving-check">✓</div> Instant email receipt for every transaction</div>
         </div>
-        <div style="margin-top:2.5rem;padding:1.5rem;background:rgba(232,100,26,0.06);border-radius:14px;border:1px solid rgba(232,100,26,0.15)">
-          <p style="font-size:14px;color:var(--gray-600);line-height:1.7"><strong style="color:var(--navy)">Bank Transfer:</strong> Messiah's Praise Sanctuary<br>
-          Account: 0025194270 · Unity Bank Plc</p>
+        <div class="accounts-block">
+          <h3 class="accounts-title">Church Account Details</h3>
+          <p class="accounts-note">Account name for all four accounts: <strong>Messiah's Praise Sanctuary</strong></p>
+          <p class="accounts-narration"><span>&#9888;&#65039;</span><span>Please use the appropriate narration when sending to each account.</span></p>
+          <div class="account-grid">
+            <div class="account-card">
+              <span class="account-purpose">Tithe &amp; Offering</span>
+              <div class="account-bank">UBA</div>
+              <div class="account-num-row">
+                <span class="account-num">1020738092</span>
+                <button class="account-copy" onclick="copyAccount(this,'1020738092')" aria-label="Copy UBA account number 1020738092">Copy</button>
+              </div>
+              <div class="account-holder">Messiah's Praise Sanctuary</div>
+            </div>
+            <div class="account-card">
+              <span class="account-purpose">Tithe &amp; Offering</span>
+              <div class="account-bank">Providus Bank</div>
+              <div class="account-num-row">
+                <span class="account-num">8900516434</span>
+                <button class="account-copy" onclick="copyAccount(this,'8900516434')" aria-label="Copy Providus Bank account number 8900516434">Copy</button>
+              </div>
+              <div class="account-holder">Messiah's Praise Sanctuary</div>
+            </div>
+            <div class="account-card">
+              <span class="account-purpose">Project Account</span>
+              <div class="account-bank">Ecobank</div>
+              <div class="account-num-row">
+                <span class="account-num">3852018624</span>
+                <button class="account-copy" onclick="copyAccount(this,'3852018624')" aria-label="Copy Ecobank account number 3852018624">Copy</button>
+              </div>
+              <div class="account-holder">Messiah's Praise Sanctuary</div>
+            </div>
+            <div class="account-card">
+              <span class="account-purpose">Seeds / Pledges</span>
+              <div class="account-bank">Providus Bank</div>
+              <div class="account-num-row">
+                <span class="account-num">8900511257</span>
+                <button class="account-copy" onclick="copyAccount(this,'8900511257')" aria-label="Copy Providus Bank account number 8900511257">Copy</button>
+              </div>
+              <div class="account-holder">Messiah's Praise Sanctuary</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="giving-form fade-in fade-in-delay-1">
@@ -1718,85 +1714,10 @@
     <h2 class="section-title fade-in">Upcoming Events</h2>
     <div class="events-grid fade-in">
 
-      <!-- FASHION FEST FEATURED CARD -->
-      <div class="event-featured fashionfest-card">
-        <div class="ff-bg-overlay"></div>
-
-        <!-- top badge row -->
-        <div class="ff-top-row">
-          <span class="event-featured-tag ff-tag">✨ Headline Event · July 2026</span>
-          <img src="fashionfest-logo.jpg" alt="Fashion Fest" class="ff-logo-img">
-        </div>
-
-        <!-- anticipate banner -->
-        <div class="ff-anticipate-wrap">
-          <img src="fashionfest-anticipate.jpg" alt="Anticipate Fashion Fest 2026" class="ff-anticipate-img">
-        </div>
-
-        <!-- copy -->
-        <h3 class="ff-title">Fashion Fest 2026</h3>
-        <p class="ff-desc">Where the Kingdom meets the Runway. MPS presents <strong>Fashion Fest</strong> — a celebration of God-given creativity, culture, and style. Dress your best, come as a statement, and experience a fashion show like no other: rooted in faith, dripping in excellence.</p>
-
-        <div class="ff-pills">
-          <div class="ff-pill">🎨 Christian Fashion Show</div>
-          <div class="ff-pill">🎤 Live Performances</div>
-          <div class="ff-pill">📸 Style Exhibition</div>
-          <div class="ff-pill">🛍️ Designer Pop-ups</div>
-        </div>
-
-        <div class="event-featured-meta ff-meta">
-          <div class="event-featured-meta-item">
-            <div class="event-featured-meta-label">Month</div>
-            <div class="event-featured-meta-val">July 2026</div>
-          </div>
-          <div class="event-featured-meta-item">
-            <div class="event-featured-meta-label">Venue</div>
-            <div class="event-featured-meta-val">Redemption Camp</div>
-          </div>
-          <div class="event-featured-meta-item">
-            <div class="event-featured-meta-label">Entry</div>
-            <div class="event-featured-meta-val">Free · All Welcome</div>
-          </div>
-        </div>
-
-        <a href="https://www.instagram.com/fashionfest.ng" target="_blank" class="ff-cta" rel="noopener">
-          Follow @fashionfest.ng for Updates →
-        </a>
-      </div>
       <div class="events-list">
 
-        <!-- Fashion Fest teaser cards -->
-        <div class="ff-side-banner">
-          <div class="ff-side-icon">👗</div>
-          <div>
-            <div class="ff-side-title">Dress With Purpose</div>
-            <div class="ff-side-sub">Your style is a testimony. At Fashion Fest, every outfit tells a Kingdom story.</div>
-          </div>
-        </div>
-        <div class="ff-side-banner">
-          <div class="ff-side-icon">🙌</div>
-          <div>
-            <div class="ff-side-title">Faith Meets Fashion</div>
-            <div class="ff-side-sub">Modesty never looked this powerful. Come see creativity redeemed for God's glory.</div>
-          </div>
-        </div>
-        <div class="ff-side-banner">
-          <div class="ff-side-icon">🌟</div>
-          <div>
-            <div class="ff-side-title">The Kingdom Runway</div>
-            <div class="ff-side-sub">Watch anointed designers, models, and creators step out in excellence and purpose.</div>
-          </div>
-        </div>
-        <div class="ff-side-banner">
-          <div class="ff-side-icon">📣</div>
-          <div>
-            <div class="ff-side-title">Spread the Word</div>
-            <div class="ff-side-sub">Invite your friends, your squad, your campus. Fashion Fest is for everyone.</div>
-          </div>
-        </div>
-
         <!-- Regular upcoming events -->
-        <div class="event-item" style="margin-top:0.5rem">
+        <div class="event-item">
           <div class="event-date-box"><div class="event-date-day">4</div><div class="event-date-month">May</div></div>
           <div class="event-info"><h4>1st Sunday Thanksgiving</h4><p>8:00 AM · Main Auditorium</p></div>
         </div>
@@ -1910,7 +1831,7 @@
             <div class="contact-item-icon">✉️</div>
             <div class="contact-item-text">
               <h4>Email</h4>
-              <p><a href="mailto:rccgmps@gmail.com">rccgmps@gmail.com</a></p>
+              <p><a href="mailto:askMPSinfo@gmail.com">askMPSinfo@gmail.com</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -2492,6 +2413,15 @@ function closeEasterEgg() {
   document.getElementById('easterEggModal').classList.remove('open');
   document.body.style.overflow = '';
 }
+function copyAccount(btn, num) {
+  navigator.clipboard.writeText(num).then(() => {
+    btn.textContent = '✅ Copied';
+    btn.classList.add('copied');
+    showToast('✅ Account number copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => showToast('⚠️ Could not copy — please copy the number manually'));
+}
+
 function copyVoucher(el) {
   navigator.clipboard.writeText('MPS-GIFT-5K').then(() => {
     el.textContent = '✅ COPIED!';
